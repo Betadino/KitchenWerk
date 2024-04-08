@@ -9,7 +9,7 @@ public class PlayerIdleState : IPlayerMovementStates
 
     public void OnEnterState (PlayerController player)
     {
-
+        player.spriteRenderer.color = Color.white;
     }
 
     public void OnUpdateState (PlayerController player)
@@ -46,7 +46,7 @@ public class PlayerWalkingState : IPlayerMovementStates
     public float speed = 6f;
     public void OnEnterState (PlayerController player)
     {
-
+        player.spriteRenderer.color = Color.blue;
     }
 
     public void OnUpdateState (PlayerController player)
@@ -70,7 +70,7 @@ public class PlayerWalkingState : IPlayerMovementStates
         }
 
         //go to dashing state
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
 			player.SwitchMovementState(player.playerDashingState);
 		}
@@ -102,7 +102,7 @@ public class PlayerRunningState : IPlayerMovementStates
 
     public void OnEnterState (PlayerController player)
     {
-
+        player.spriteRenderer.color = Color.red;
     }
 
     public void OnUpdateState (PlayerController player)
@@ -124,7 +124,7 @@ public class PlayerRunningState : IPlayerMovementStates
             player.SwitchMovementState(player.playerWalkingState);
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
 			player.SwitchMovementState(player.playerDashingState);
 		}
@@ -151,15 +151,17 @@ public class PlayerDashingState : IPlayerMovementStates
 	public float horizontalValue;
 	public float verticalValue;
 	public Vector2 movement;
-	//public Vector2 dashStrength = new Vector2
+
 	public void OnEnterState(PlayerController player)
 	{
 		horizontalValue = Input.GetAxisRaw("Horizontal");
 		verticalValue = Input.GetAxisRaw("Vertical");
+
 		movement.x = horizontalValue;
 		movement.y = verticalValue;
 		movement = movement.normalized;
-		player.rb.AddForce(movement * 0.1f, ForceMode2D.Impulse);
+
+		player.rb.AddForce(movement * 2f, ForceMode2D.Impulse);
 	}
 
 	public void OnUpdateState(PlayerController player)

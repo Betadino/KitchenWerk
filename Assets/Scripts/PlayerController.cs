@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject player;
     public Rigidbody2D rb;
+    public SpriteRenderer spriteRenderer;
     private IPlayerMovementStates currentMovementState;
     private IPlayerInteractionStates currentInteractionState;
     public PlayerIdleState playerIdleState = new PlayerIdleState();

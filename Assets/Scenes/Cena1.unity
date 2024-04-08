@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.51692307, g: 0.43827873, b: 0.6320754, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -401,6 +401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1745614487}
   rb: {fileID: 1745614491}
+  spriteRenderer: {fileID: 1745614488}
 --- !u!50 &1745614491
 Rigidbody2D:
   serializedVersion: 4
