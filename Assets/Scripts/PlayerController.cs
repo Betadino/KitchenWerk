@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject player;
+    public Rigidbody2D rb;
+    private IPlayerMovementStates currentState;
+    public PlayerIdleState playerIdleState = new PlayerIdleState();
+    public PlayerWalkingState playerWalkingState = new PlayerWalkingState();
+    public PlayerRunningState playerRunningState = new PlayerRunningState();
+
+    public void Start()
     {
-        
+        currentState = playerIdleState;
+        currentState.OnEnterState(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        currentState.OnUpdateState(this);
+    }
+
+    public void SwitchState(IPlayerMovementStates state)
+    {
+        currentState.OnExitState(this);
+        currentState = state;
+        currentState.OnEnterState(this);
     }
 }
