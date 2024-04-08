@@ -7,7 +7,7 @@ public interface IPlayerInteractionStates
 
     }
 
-    void OnUpdateState(PlayerController player)
+    void OnUpdateState(PlayerController player, Collider2D collider)
     {
 
     }

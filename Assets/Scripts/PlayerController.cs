@@ -5,19 +5,36 @@ public class PlayerController : MonoBehaviour
     public GameObject player;
     public Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
-    private IPlayerMovementStates currentMovementState;
-    private IPlayerInteractionStates currentInteractionState;
-    public PlayerIdleState playerIdleState = new PlayerIdleState();
-    public PlayerWalkingState playerWalkingState = new PlayerWalkingState();
-    public PlayerRunningState playerRunningState = new PlayerRunningState();
-    public PlayerDashingState playerDashingState = new PlayerDashingState();
 
+    //_________________Movements____________________
+    private IPlayerMovementStates currentMovementState;
+    public PlayerIdleState playerIdleState = new();
+    public PlayerWalkingState playerWalkingState = new();
+    public PlayerRunningState playerRunningState = new();
+    public PlayerDashingState playerDashingState = new();
+    //_________________Interactions____________________
+    private IPlayerInteractionStates currentInteractionState;
+    public PlayerHandsFreeState playerHandsFreeState=new();
+    
+    public PlayerIsPickingState playerIsPickingState = new();
+
+
+    public static bool PickUp;
     public void Start()
     {
+        PickUp=false;
         currentMovementState = playerIdleState;
         currentMovementState.OnEnterState(this);
+        currentInteractionState = playerHandsFreeState;
     }
 
+    void OnTriggerStay2D(Collider2D other) {
+        if(other.gameObject.CompareTag("pickable"))
+            {
+    
+                currentInteractionState.OnUpdateState(this, other);
+            }
+    }
     public void Update()
     {
         currentMovementState.OnUpdateState(this);
@@ -35,7 +52,7 @@ public class PlayerController : MonoBehaviour
         currentMovementState.OnEnterState(this);
     }
 
-    public void SwitchInteractionStates(IPlayerInteractionStates state)
+    public void SwitchInteractionState(IPlayerInteractionStates state)
     {
 		currentInteractionState.OnExitState(this);
 		currentInteractionState = state;
