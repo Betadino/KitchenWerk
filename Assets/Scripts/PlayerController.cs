@@ -4,35 +4,40 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject player;
     public Rigidbody2D rb;
-    private IPlayerMovementStates currentState;
-    private IPlayerPickStates currentPickingState;
-    
-    private IPlayerPickStates pickstate;
+    private IPlayerMovementStates currentMovementState;
+    private IPlayerInteractionStates currentInteractionState;
     public PlayerIdleState playerIdleState = new PlayerIdleState();
     public PlayerWalkingState playerWalkingState = new PlayerWalkingState();
     public PlayerRunningState playerRunningState = new PlayerRunningState();
+    public PlayerDashingState playerDashingState = new PlayerDashingState();
 
     public void Start()
     {
-        currentState = playerIdleState;
-        currentState.OnEnterState(this);
-        //
+        currentMovementState = playerIdleState;
+        currentMovementState.OnEnterState(this);
     }
 
     public void Update()
     {
-        currentState.OnUpdateState(this);
+        currentMovementState.OnUpdateState(this);
     }
 
     public void FixedUpdate()
     {
-        currentState.OnFixedUpdate(this);
+        currentMovementState.OnFixedUpdate(this);
     }
 
-    public void SwitchState(IPlayerMovementStates state)
+    public void SwitchMovementState(IPlayerMovementStates state)
     {
-        currentState.OnExitState(this);
-        currentState = state;
-        currentState.OnEnterState(this);
+        currentMovementState.OnExitState(this);
+        currentMovementState = state;
+        currentMovementState.OnEnterState(this);
     }
+
+    public void SwitchInteractionStates(IPlayerInteractionStates state)
+    {
+		currentInteractionState.OnExitState(this);
+		currentInteractionState = state;
+		currentInteractionState.OnEnterState(this);
+	}
 }

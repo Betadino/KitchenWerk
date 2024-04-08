@@ -1,18 +1,18 @@
 using Unity.VisualScripting;
 using UnityEngine;
-namespace States;
+
 public class PlayerIdleState : IPlayerMovementStates
 {
     public float horizontalValue;
     public float verticalValue;
     public Vector2 movement;
 
-    public void OnEnterState(PlayerController player)
+    public void OnEnterState (PlayerController player)
     {
 
     }
 
-    public void OnUpdateState(PlayerController player)
+    public void OnUpdateState (PlayerController player)
     {
         horizontalValue = Input.GetAxisRaw("Horizontal");
         verticalValue = Input.GetAxisRaw("Vertical");
@@ -23,16 +23,16 @@ public class PlayerIdleState : IPlayerMovementStates
         //go to walk state
         if (movement.sqrMagnitude != 0)
         {
-            player.SwitchState(player.playerWalkingState);
+            player.SwitchMovementState(player.playerWalkingState);
         }
     }
 
-    public void OnFixedUpdate(PlayerController player)
+    public void OnFixedUpdate (PlayerController player)
     {
 
     }
 
-    public void OnExitState(PlayerController player)
+    public void OnExitState (PlayerController player)
     {
 
     }
@@ -44,12 +44,12 @@ public class PlayerWalkingState : IPlayerMovementStates
     public float verticalValue;
     public Vector2 movement;
     public float speed = 6f;
-    public void OnEnterState(PlayerController player)
+    public void OnEnterState (PlayerController player)
     {
 
     }
 
-    public void OnUpdateState(PlayerController player)
+    public void OnUpdateState (PlayerController player)
     {
         horizontalValue = Input.GetAxisRaw("Horizontal");
         verticalValue = Input.GetAxisRaw("Vertical");
@@ -60,17 +60,23 @@ public class PlayerWalkingState : IPlayerMovementStates
         //go back to idle
         if (movement.sqrMagnitude == 0)
         {
-            player.SwitchState(player.playerIdleState);
+            player.SwitchMovementState(player.playerIdleState);
         }
 
         //go to running state
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            player.SwitchState(player.playerRunningState);
+            player.SwitchMovementState(player.playerRunningState);
         }
+
+        //go to dashing state
+        if (Input.GetKey(KeyCode.Space))
+        {
+			player.SwitchMovementState(player.playerDashingState);
+		}
     }
 
-    public void OnFixedUpdate(PlayerController player)
+    public void OnFixedUpdate (PlayerController player)
     {
         //move player
         if (movement.sqrMagnitude != 0)
@@ -80,7 +86,7 @@ public class PlayerWalkingState : IPlayerMovementStates
         }
     }
 
-    public void OnExitState(PlayerController player)
+    public void OnExitState (PlayerController player)
     {
 
     }
@@ -94,12 +100,12 @@ public class PlayerRunningState : IPlayerMovementStates
     public float speed = 4f;
     public float runningModifier = 3f;
 
-    public void OnEnterState(PlayerController player)
+    public void OnEnterState (PlayerController player)
     {
 
     }
 
-    public void OnUpdateState(PlayerController player)
+    public void OnUpdateState (PlayerController player)
     {
         horizontalValue = Input.GetAxisRaw("Horizontal");
         verticalValue = Input.GetAxisRaw("Vertical");
@@ -110,16 +116,21 @@ public class PlayerRunningState : IPlayerMovementStates
         //go back to idle
         if (movement.sqrMagnitude == 0)
         {
-            player.SwitchState(player.playerIdleState);
+            player.SwitchMovementState(player.playerIdleState);
         }
         //go back to running
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            player.SwitchState(player.playerWalkingState);
+            player.SwitchMovementState(player.playerWalkingState);
         }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+			player.SwitchMovementState(player.playerDashingState);
+		}
     }
 
-    public void OnFixedUpdate(PlayerController player)
+    public void OnFixedUpdate (PlayerController player)
     {
         //move player
         if (movement.sqrMagnitude != 0)
@@ -133,4 +144,36 @@ public class PlayerRunningState : IPlayerMovementStates
     {
 
     }
+}
+
+public class PlayerDashingState : IPlayerMovementStates
+{
+	public float horizontalValue;
+	public float verticalValue;
+	public Vector2 movement;
+	//public Vector2 dashStrength = new Vector2
+	public void OnEnterState(PlayerController player)
+	{
+		horizontalValue = Input.GetAxisRaw("Horizontal");
+		verticalValue = Input.GetAxisRaw("Vertical");
+		movement.x = horizontalValue;
+		movement.y = verticalValue;
+		movement = movement.normalized;
+		player.rb.AddForce(movement * 0.1f, ForceMode2D.Impulse);
+	}
+
+	public void OnUpdateState(PlayerController player)
+	{
+		player.SwitchMovementState(player.playerIdleState);
+	}
+
+	public void OnFixedUpdate(PlayerController player)
+	{
+
+	}
+
+	public void OnExitState(PlayerController player)
+	{
+
+	}
 }

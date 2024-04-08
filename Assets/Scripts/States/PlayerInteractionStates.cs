@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerHandsFreeState : IPlayerPickStates
+public class PlayerHandsFreeState : IPlayerInteractionStates
 {
 
 
@@ -21,7 +21,7 @@ public class PlayerHandsFreeState : IPlayerPickStates
     }
 }
 
-public class PlayerIsPickingState : IPlayerPickStates
+public class PlayerIsPickingState : IPlayerInteractionStates
 {
 
 
