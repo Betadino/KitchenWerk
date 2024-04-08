@@ -16,4 +16,9 @@ public interface IPlayerMovementStates
     {
 
     }
+
+    void OnFixedUpdate(PlayerController player)
+    {
+
+    }
 }

@@ -20,6 +20,11 @@ public class PlayerController : MonoBehaviour
         currentState.OnUpdateState(this);
     }
 
+    public void FixedUpdate()
+    {
+        currentState.OnFixedUpdate(this);
+    }
+
     public void SwitchState(IPlayerMovementStates state)
     {
         currentState.OnExitState(this);

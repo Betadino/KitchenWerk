@@ -27,6 +27,11 @@ public class PlayerIdleState : IPlayerMovementStates
         }
     }
 
+    public void OnFixedUpdate(PlayerController player)
+    {
+
+    }
+
     public void OnExitState(PlayerController player)
     {
 
@@ -38,7 +43,7 @@ public class PlayerWalkingState : IPlayerMovementStates
     public float horizontalValue;
     public float verticalValue;
     public Vector2 movement;
-    public float speed = 4f;
+    public float speed = 6f;
     public void OnEnterState(PlayerController player)
     {
 
@@ -52,17 +57,6 @@ public class PlayerWalkingState : IPlayerMovementStates
         movement.y = verticalValue;
         movement = movement.normalized;
 
-        //move player horizontal
-        if (movement.x != 0)
-        {
-            player.transform.position += player.transform.right * speed * movement.x * Time.deltaTime;
-        }
-        //move player vertical
-        if (movement.y != 0)
-        {
-            player.transform.position += player.transform.up * speed * movement.y * Time.deltaTime;
-        }
-
         //go back to idle
         if (movement.sqrMagnitude == 0)
         {
@@ -73,6 +67,16 @@ public class PlayerWalkingState : IPlayerMovementStates
         if (Input.GetKey(KeyCode.LeftShift))
         {
             player.SwitchState(player.playerRunningState);
+        }
+    }
+
+    public void OnFixedUpdate(PlayerController player)
+    {
+        //move player
+        if (movement.sqrMagnitude != 0)
+        {
+            player.rb.AddForce(movement * speed);
+            //player.transform.position += player.transform.right * speed * movement.x * Time.deltaTime;
         }
     }
 
@@ -88,7 +92,7 @@ public class PlayerRunningState : IPlayerMovementStates
     public float verticalValue;
     public Vector2 movement;
     public float speed = 4f;
-    public float runningModifier = 2f;
+    public float runningModifier = 3f;
 
     public void OnEnterState(PlayerController player)
     {
@@ -103,16 +107,6 @@ public class PlayerRunningState : IPlayerMovementStates
         movement.y = verticalValue;
         movement = movement.normalized;
 
-        if (movement.x != 0)
-        {
-            player.transform.position += player.transform.right * (speed * runningModifier) * movement.x * Time.deltaTime;
-        }
-        //move player vertical
-        if (movement.y != 0)
-        {
-            player.transform.position += player.transform.up * (speed * runningModifier) * movement.y * Time.deltaTime;
-        }
-
         //go back to idle
         if (movement.sqrMagnitude == 0)
         {
@@ -122,6 +116,16 @@ public class PlayerRunningState : IPlayerMovementStates
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             player.SwitchState(player.playerWalkingState);
+        }
+    }
+
+    public void OnFixedUpdate(PlayerController player)
+    {
+        //move player
+        if (movement.sqrMagnitude != 0)
+        {
+            player.rb.AddForce(movement * (speed * runningModifier));
+            //player.transform.position += player.transform.right * (speed * runningModifier) * movement.x * Time.deltaTime;
         }
     }
 
