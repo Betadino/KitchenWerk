@@ -1,6 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
-
+namespace States;
 public class PlayerIdleState : IPlayerMovementStates
 {
     public float horizontalValue;

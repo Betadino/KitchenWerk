@@ -5,6 +5,9 @@ public class PlayerController : MonoBehaviour
     public GameObject player;
     public Rigidbody2D rb;
     private IPlayerMovementStates currentState;
+    private IPlayerPickStates currentPickingState;
+    
+    private IPlayerPickStates pickstate;
     public PlayerIdleState playerIdleState = new PlayerIdleState();
     public PlayerWalkingState playerWalkingState = new PlayerWalkingState();
     public PlayerRunningState playerRunningState = new PlayerRunningState();
@@ -13,6 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         currentState = playerIdleState;
         currentState.OnEnterState(this);
+        //
     }
 
     public void Update()
