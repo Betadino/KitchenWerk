@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject holdArea;
     public GameObject currentItem = null;
-    public bool hasItem = false;
+    public static bool hasItem = false;
     public static bool canPickup;
 
     public void Start()
@@ -34,18 +34,6 @@ public class PlayerController : MonoBehaviour
         currentInteractionState = playerHandsFreeState;
     }
 
-    /*void OnTriggerStay2D(Collider2D other) {
-		if (Input.GetKeyDown(KeyCode.E))
-		{
-			Debug.Log("yes");
-			other.gameObject.transform.SetParent(player.transform, true);
-		}
-
-		/*if (other.gameObject.CompareTag("pickable"))
-            {
-                currentInteractionState.OnUpdateState(this, other);
-            }
-    }*/
     public void Update()
     {
         if (currentItem)
@@ -86,15 +74,6 @@ public class PlayerController : MonoBehaviour
         float lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = lookAngle;
     }
-
-	public void OnTriggerEnter2D(Collider2D collision)
-	{
-        if (!currentItem)
-        {
-			canPickup = true;
-            currentItem = collision.gameObject;
-		}
-	}
 
 	public void OnTriggerExit2D(Collider2D collision)
 	{
