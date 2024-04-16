@@ -5,7 +5,6 @@ using static UnityEditor.Progress;
 public class PlayerHandsFreeState : IPlayerInteractionStates
 {
     public GameObject selectedObject;
-    public float distance = 0f;
     public void OnEnterState(PlayerController player)
     {
         selectedObject = null;
@@ -18,35 +17,14 @@ public class PlayerHandsFreeState : IPlayerInteractionStates
             CheckObject();
             if (selectedObject != null)
             {
-                distance = CheckDistance(player.gameObject, selectedObject.gameObject);
-                if (distance <= 2f)
-                {
-                    player.SwitchInteractionState(player.playerIsPickingState);
-                }
+				player.SwitchInteractionState(player.playerIsPickingState);
             }
-            /*distance = CheckDistance(player.gameObject, selectedObject);
-            if (distance <= 2f)
-            {
-                player.SwitchInteractionState(player.playerIsPickingState);
-            }
-            else
-            {
-                Debug.Log("TOO FAR");
-            }*/
         }
 	}
 
     public void OnExitState(PlayerController player)
     {
 
-    }
-
-    public float CheckDistance(GameObject player, GameObject obj)
-    {
-        Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
-        Vector2 objPos = new Vector2(obj.transform.position.x, obj.transform.position.y);
-        float distance = Vector2.Distance(playerPos, objPos);
-        return distance;
     }
 
     public void CheckObject()
@@ -58,7 +36,10 @@ public class PlayerHandsFreeState : IPlayerInteractionStates
         if (hit.collider != null && hit.collider.gameObject.tag == "pickable")
         {
             GameObject objectHit = hit.collider.gameObject;
-            selectedObject = objectHit;
+            if (objectHit.GetComponent<ObjectController>().inRange == true)
+            {
+				selectedObject = objectHit;
+			}
         }
     }
 }

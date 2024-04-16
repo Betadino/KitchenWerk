@@ -9,7 +9,7 @@ public class PlayerIdleState : IPlayerMovementStates
 
     public void OnEnterState (PlayerController player)
     {
-        player.spriteRenderer.color = Color.white;
+        player.spriteRenderer.color = Color.green;
     }
 
     public void OnUpdateState (PlayerController player)
@@ -154,6 +154,7 @@ public class PlayerDashingState : IPlayerMovementStates
 
 	public void OnEnterState(PlayerController player)
 	{
+        player.spriteRenderer.color = Color.yellow;
 		horizontalValue = Input.GetAxisRaw("Horizontal");
 		verticalValue = Input.GetAxisRaw("Vertical");
 

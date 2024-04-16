@@ -23,24 +23,15 @@ public class PlayerController : MonoBehaviour
 
     public GameObject holdArea;
     public GameObject currentItem = null;
-    public static bool hasItem = false;
-    public static bool canPickup;
 
     public void Start()
     {
-        canPickup=false;
-        currentMovementState = playerIdleState;
-        currentMovementState.OnEnterState(this);
-        currentInteractionState = playerHandsFreeState;
+        SwitchMovementState(playerIdleState);
+        SwitchInteractionState(playerHandsFreeState);
     }
 
     public void Update()
     {
-        if (currentItem)
-        {
-            Debug.Log(currentItem.name);
-        }
-        
         RotateToMouse(); //aponta o jogador na direcao do rato
 
         currentMovementState.OnUpdateState(this);
@@ -54,16 +45,29 @@ public class PlayerController : MonoBehaviour
 
     public void SwitchMovementState(IPlayerMovementStates state)
     {
-        currentMovementState.OnExitState(this);
+        if (currentMovementState != null)
+        {
+			currentMovementState.OnExitState(this);
+		}
         currentMovementState = state;
-        currentMovementState.OnEnterState(this);
+        if (currentMovementState != null)
+        {
+			currentMovementState.OnEnterState(this);
+		}
     }
 
     public void SwitchInteractionState(IPlayerInteractionStates state)
     {
-		currentInteractionState.OnExitState(this);
+        if (currentInteractionState != null)
+        {
+			currentInteractionState.OnExitState(this);
+		}
+		
 		currentInteractionState = state;
-		currentInteractionState.OnEnterState(this);
+        if (currentInteractionState != null)
+        {
+			currentInteractionState.OnEnterState(this);
+		}
 	}
 
     //funcao de rodar o jogador
@@ -74,10 +78,4 @@ public class PlayerController : MonoBehaviour
         float lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = lookAngle;
     }
-
-	public void OnTriggerExit2D(Collider2D collision)
-	{
-        currentItem = null;
-        canPickup = false;
-	}
 }

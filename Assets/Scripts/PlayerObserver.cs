@@ -17,7 +17,6 @@ public class PlayerObserver
 
     public void HandleEvent()
     {
-        PlayerController.hasItem = true;
         playerController.SwitchInteractionState(playerController.playerIsPickingState);
         Debug.Log("FIZ UMA CENA");
     }
