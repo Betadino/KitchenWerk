@@ -13,7 +13,7 @@ public class ObjectIdleState : IObjectStates
     {
 		//obj.spriteRenderer.color = Color.red;
 		distance = CheckPlayerDist(obj.transform.position, obj.player.transform.position);
-		if (distance <= 2f)
+		if (distance <= 0.275f)
 		{
 			obj.SwitchState(obj.grabbableState);
 		}

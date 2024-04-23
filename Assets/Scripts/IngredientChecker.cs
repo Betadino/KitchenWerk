@@ -5,7 +5,6 @@ using UnityEngine;
 public class IngredientChecker : MonoBehaviour
 {
     private string type = "pepperoni";
-    // Start is called before the first frame update
     public string CheckType()
     {
         return type;
