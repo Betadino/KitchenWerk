@@ -1,6 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Progress;
+
 
 public class PlayerHandsFreeState : IPlayerInteractionStates
 {

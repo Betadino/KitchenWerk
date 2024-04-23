@@ -17,7 +17,7 @@ public class BroomController : MonoBehaviour
         if (isPickedUp)
         {
             // Adjust the position of the broom relative to the player if necessary
-            transform.position = player.transform.position + new Vector3(1, 0, 0);
+            transform.position = player.transform.position + new Vector3(0.1f, 0, 0);
         }
     }
 
