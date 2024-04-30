@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     public Vector2 mousePosition;
     public Camera camera;
 
+    //________________Upgrade Bools________________
+    public bool upg_hasRun = false;
+    public bool upg_hasDash = false;
+
     //_________________Movements____________________
     private IPlayerMovementStates currentMovementState;
     public PlayerIdleState playerIdleState = new();

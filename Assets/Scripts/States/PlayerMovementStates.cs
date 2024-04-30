@@ -66,13 +66,19 @@ public class PlayerWalkingState : IPlayerMovementStates
         //go to running state
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            player.SwitchMovementState(player.playerRunningState);
+            if(player.upg_hasRun)
+            {
+                player.SwitchMovementState(player.playerRunningState);
+            }
         }
 
         //go to dashing state
         if (Input.GetKeyDown(KeyCode.Space))
         {
-			player.SwitchMovementState(player.playerDashingState);
+            if (player.upg_hasDash)
+            {
+                player.SwitchMovementState(player.playerDashingState);
+            }
 		}
     }
 
