@@ -672,7 +672,7 @@ GameObject:
   - component: {fileID: 444397470}
   - component: {fileID: 444397469}
   m_Layer: 0
-  m_Name: Mesa
+  m_Name: Mesa 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1992,7 +1992,7 @@ GameObject:
   - component: {fileID: 1275196175}
   - component: {fileID: 1275196174}
   m_Layer: 0
-  m_Name: Mesa
+  m_Name: Mesa 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2441,7 +2441,7 @@ GameObject:
   - component: {fileID: 1967016952}
   - component: {fileID: 1967016951}
   m_Layer: 0
-  m_Name: Mesa
+  m_Name: Mesa 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2560,7 +2560,7 @@ GameObject:
   - component: {fileID: 2040850172}
   - component: {fileID: 2040850171}
   m_Layer: 0
-  m_Name: Mesa
+  m_Name: Mesa 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
