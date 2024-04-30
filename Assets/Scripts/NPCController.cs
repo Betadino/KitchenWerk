@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    public GameObject ratPrefab; // Assign your Rat prefab in the inspector
-    public Transform targetLocation; // Assign the target location in the inspector
-    public float spawnInterval = 10f; // Interval between spawns in seconds
     private GameObject player;
+    public GameObject ratPrefab;
+
+    public Transform targetLocation; // Food location
+
+    public float spawnInterval = 10f; // Interval between spawns in seconds
 
     private List<GameObject> rats = new List<GameObject>(); // List to store instantiated rats
 
@@ -40,16 +42,16 @@ public class NPCController : MonoBehaviour
     {
         foreach (GameObject rat in rats)
         {
-            if (rat != null) // Check if the rat is not destroyed
+            // If the player does not have the broom
+            if (BroomController.isPickedUp == false)
             {
-                rat.transform.position = Vector2.MoveTowards(rat.transform.position, targetLocation.position, 3 * Time.deltaTime); // Move towards the food
+                rat.transform.position = Vector2.MoveTowards(rat.transform.position, targetLocation.position, 2 * Time.deltaTime); // Move towards the food
             }
 
-            else if (BroomController.isPickedUp == true && Vector2.Distance(rat.transform.position, player.transform.position) <= 1f) // If the player has the broom and is close to the rat
+            // If the player has the broom and is close to the rat
+            else if (BroomController.isPickedUp == true && Vector2.Distance(rat.transform.position, player.transform.position) <= 0.8f)
             {
-                rat.transform.position = Vector2.MoveTowards(rat.transform.position, transform.position, 3 * Time.deltaTime); // Move towards the hole
-
-                Debug.Log("oi");
+                rat.transform.position = Vector2.MoveTowards(rat.transform.position, transform.position, 2 * Time.deltaTime); // Move towards the hole
             }
         }
     }
