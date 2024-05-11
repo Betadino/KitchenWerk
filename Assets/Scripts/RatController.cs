@@ -11,12 +11,11 @@ public class RatController : MonoBehaviour
 
     public GameObject[] targets; // List to store targets
 
-    public Vector3 selectedWaypoint;
+    public Vector3 selectedWaypoint; // Position of target
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-
         targets = GameObject.FindGameObjectsWithTag("pickable");
 
         selectedWaypoint = ChooseWaypoint();
@@ -44,7 +43,7 @@ public class RatController : MonoBehaviour
 
             if (gameObject.transform.position == ratHole.transform.position)
             {
-                Destroy(gameObject);
+                Destroy(gameObject); // The rat is destroyed if it is in the rat hole
             }
         }
     }
@@ -56,5 +55,17 @@ public class RatController : MonoBehaviour
         GameObject randomTarget = targets[randomIndex];
 
         return randomTarget.transform.position;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // If the rat is in the target, the target is not pickable
+        collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // If the rat is not in the target, the target is pickable
+        collision.gameObject.GetComponent<CircleCollider2D>().enabled = true;
     }
 }

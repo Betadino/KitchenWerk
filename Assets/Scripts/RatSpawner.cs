@@ -13,11 +13,6 @@ public class RatSpawner : MonoBehaviour
         // Spawns rats every n seconds
         InvokeRepeating("SpawnRat", spawnInterval, spawnInterval);
     }
-
-    void Update()
-    {
-        
-    }
     
     void SpawnRat()
     {
