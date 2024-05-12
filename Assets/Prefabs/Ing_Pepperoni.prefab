@@ -85,3 +85,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2824adc30ed5d4fae829289c2c533d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: pepperoni

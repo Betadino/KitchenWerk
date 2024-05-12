@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class IngredientChecker : MonoBehaviour
 {
-    private string type = "pepperoni";
+
+    public string _type = "";
+
+    public IngredientChecker(string type)
+    {
+        _type = type;
+    }
     public string CheckType()
     {
-        return type;
+        return _type;
     }
 }
