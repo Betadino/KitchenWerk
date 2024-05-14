@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8173581785604220487}
-  - component: {fileID: 8113016842036114799}
+  - component: {fileID: 6084982734537707638}
   m_Layer: 0
-  m_Name: NPCSpawner
+  m_Name: OrderSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8113016842036114799
+--- !u!114 &6084982734537707638
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,8 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6224962044484758207}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64312d2c724849d4a9979f42d5df52c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 72a8d17789911e54a8ce3c6c017437e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Customers: {fileID: 0}
-  spawnInterval: 0
+  orders: []
+  pos: []
+  firstSpawn: 10
+  spawnInterval: 20
