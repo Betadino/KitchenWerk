@@ -22,11 +22,18 @@ public class BroomController : MonoBehaviour
             transform.position = holdBroom.transform.position;
             transform.rotation = player.transform.rotation;
         }
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+        if (isPickedUp && Input.GetKey(KeyCode.F))
+        {
+            transform.parent = null;
+
+            isPickedUp = false;
+        }
+    }
+    
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject == player)
+        if (collision.gameObject == player && Input.GetKey(KeyCode.E))
         {
             // Set the broom as a child of the player
             transform.SetParent(player.transform);
