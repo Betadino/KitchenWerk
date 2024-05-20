@@ -66,7 +66,7 @@ public class PlayerWalkingState : IPlayerMovementStates
         //go to running state
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            if(player.upg_hasRun)
+            if(player.upg_hasSprint)
             {
                 player.SwitchMovementState(player.playerRunningState);
             }
@@ -177,6 +177,24 @@ public class PlayerDashingState : IPlayerMovementStates
 	}
 
 	public void OnFixedUpdate(PlayerController player)
+	{
+
+	}
+
+	public void OnExitState(PlayerController player)
+	{
+
+	}
+}
+
+public class PlayerPausedState : IPlayerMovementStates
+{
+    public void OnEnterState(PlayerController player)
+    {
+
+    }
+
+	public void OnUpdateState(PlayerController player)
 	{
 
 	}

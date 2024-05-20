@@ -72,9 +72,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3077453946661117584}
   - component: {fileID: 2870609616625375120}
-  - component: {fileID: 3995709161283038383}
   - component: {fileID: 8390015918055759884}
   - component: {fileID: 6677812769611382203}
+  - component: {fileID: 3995709161283038383}
+  - component: {fileID: 2809954535865424830}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -152,26 +153,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3995709161283038383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5758976039224999841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 581e22370ec0f58479e58fc6a1b7d67d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 5758976039224999841}
-  rb: {fileID: 6677812769611382203}
-  spriteRenderer: {fileID: 2870609616625375120}
-  lookDirection: {x: 0, y: 0}
-  mousePosition: {x: 0, y: 0}
-  camera: {fileID: 0}
-  holdArea: {fileID: 1688417127075010411}
-  currentItem: {fileID: 0}
 --- !u!58 &8390015918055759884
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -234,6 +215,40 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &3995709161283038383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758976039224999841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581e22370ec0f58479e58fc6a1b7d67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5758976039224999841}
+  rb: {fileID: 6677812769611382203}
+  spriteRenderer: {fileID: 2870609616625375120}
+  lookDirection: {x: 0, y: 0}
+  mousePosition: {x: 0, y: 0}
+  camera: {fileID: 0}
+  upg_hasRun: 0
+  upg_hasDash: 0
+  holdArea: {fileID: 1688417127075010411}
+  currentItem: {fileID: 0}
+--- !u!114 &2809954535865424830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758976039224999841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c24e5a921b7544a9fd78756a6d67e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6285163563965853277
 GameObject:
   m_ObjectHideFlags: 0

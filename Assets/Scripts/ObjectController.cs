@@ -16,7 +16,22 @@ public class ObjectController : MonoBehaviour
     public ObjectGrabbableState grabbableState = new();
     public ObjectGrabbedState grabbedState = new();
 
-    void Start()
+    //____________PauseBools____________
+    private bool gameIsPaused = false;
+
+	private void OnEnable()
+	{
+        GameStateManager.E_GamePaused += HandleGamePaused;
+        GameStateManager.E_GameUnpaused += HandleGameUnpaused;
+	}
+
+	private void OnDisable()
+	{
+		GameStateManager.E_GamePaused -= HandleGamePaused;
+		GameStateManager.E_GameUnpaused -= HandleGameUnpaused;
+	}
+
+	void Start()
     {
         currentState = idleState;
         currentState.OnEnterState(this);
@@ -27,21 +42,33 @@ public class ObjectController : MonoBehaviour
     void Update()
     {
         currentState.OnUpdateState(this);
-		//CheckPlayerDist();
 	}
 
     public void SwitchState(IObjectStates state)
     {
-        if (currentState != null)
+        if (!gameIsPaused)
         {
-            currentState.OnExitState(this);
-        }
+			if (currentState != null)
+			{
+				currentState.OnExitState(this);
+			}
 
-        currentState = state;
+			currentState = state;
 
-        if (currentState != null)
-        {
-            currentState.OnEnterState(this);
-        }
+			if (currentState != null)
+			{
+				currentState.OnEnterState(this);
+			}
+		}
+    }
+
+    public void HandleGamePaused()
+    {
+        gameIsPaused = true;
+    }
+
+    public void HandleGameUnpaused()
+    {
+        gameIsPaused = false;
     }
 }

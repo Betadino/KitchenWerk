@@ -4,16 +4,18 @@ using UnityEngine;
 public class ObjectIdleState : IObjectStates
 {
 	private float distance = 0f;
+	private float minDistance = 0f;
     public void OnEnterState(ObjectController obj)
     {
         obj.circleCollider.isTrigger = false;
 		obj.inRange = false;
+		minDistance = obj.transform.localScale.x * 3;
     }
     public void OnUpdateState(ObjectController obj)
     {
-		//obj.spriteRenderer.color = Color.red;
+		obj.spriteRenderer.color = Color.red;
 		distance = CheckPlayerDist(obj.transform.position, obj.player.transform.position);
-		if (distance <= 0.275f)
+		if (distance <= minDistance)
 		{
 			obj.SwitchState(obj.grabbableState);
 		}
@@ -35,19 +37,22 @@ public class ObjectIdleState : IObjectStates
 public class ObjectGrabbableState : IObjectStates
 {
 	private float distance = 0f;
+	private float minDistance = 0f;
 	public void OnEnterState(ObjectController obj)
 	{
 		obj.circleCollider.isTrigger = false;
 		obj.inRange = true;
+		minDistance = obj.transform.localScale.x * 3;
 	}
 	public void OnUpdateState(ObjectController obj)
 	{
-		//obj.spriteRenderer.color = Color.green;
+		obj.spriteRenderer.color = Color.green;
 		distance = CheckPlayerDist(obj.transform.position, obj.player.transform.position);
-		if (distance > 2f)
+		if (distance > minDistance)
 		{
 			obj.SwitchState(obj.idleState);
 		}
+		Debug.Log(distance);
 	}
 
 	public void OnExitState(ObjectController obj)
