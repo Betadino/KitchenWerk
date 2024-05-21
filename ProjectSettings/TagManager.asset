@@ -8,6 +8,7 @@ TagManager:
   - Rat
   - Broom
   - HoldBroom
+  - Trash
   layers:
   - Default
   - TransparentFX

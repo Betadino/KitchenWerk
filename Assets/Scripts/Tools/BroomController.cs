@@ -6,12 +6,14 @@ public class BroomController : MonoBehaviour
 {
     private GameObject player;
     private GameObject holdBroom;
+    private GameObject trash;
     public static bool isPickedUp = false;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         holdBroom = GameObject.FindWithTag("HoldBroom");
+        trash = GameObject.FindWithTag("Trash");
     }
 
     void Update()
@@ -37,6 +39,16 @@ public class BroomController : MonoBehaviour
         {
             // Set the broom as a child of the player
             transform.SetParent(player.transform);
+
+            isPickedUp = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject == trash) // Clean the trash
+        {
+            Destroy(collision.gameObject);
 
             isPickedUp = true;
         }

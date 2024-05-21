@@ -52,7 +52,7 @@ public class ObjectGrabbableState : IObjectStates
 		{
 			obj.SwitchState(obj.idleState);
 		}
-		Debug.Log(distance);
+		//Debug.Log(distance);
 	}
 
 	public void OnExitState(ObjectController obj)

@@ -8,24 +8,33 @@ public class BumController : MonoBehaviour
 {
     public static bool bumIsDestroyed = false;
 
-    void Start()
-    {
-        
-    }
+    public float timer = 20f;
+    public GameObject prefab;
 
     private void Update()
     {
-        
+        timer -= Time.deltaTime;
+        if (timer < 0) // If the player doesn't deal with the bum in time, the bum will throw trash
+        {
+            Instantiate(prefab,
+                Camera.main.ScreenToWorldPoint(new Vector3(UnityEngine.Random.Range(0, Screen.width), /* Random Width */
+                                                            UnityEngine.Random.Range(0, Screen.height), /* Random Height */
+                                                            Camera.main.nearClipPlane)), /* Nearest point of the camera view */
+                Quaternion.identity);
+
+            timer = 20f;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        // If the player interacts with the bum, the bum is destroyed
+        // If the player interacts with the bum, the bum goes away
         if (Input.GetKey(KeyCode.E))
         { 
             Destroy(gameObject);
 
             bumIsDestroyed = true;
         }
+
     }
 }
