@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class OrderController : MonoBehaviour
 {
+    public int orderID;
+
     public GameObject[] orders;
     public Transform[] pos;
 
-    public float firstSpawn = 10f;
-    public float spawnInterval = 20f;
+    //public float firstSpawn = 10f;
+    //public float spawnInterval = 20f;
     void Start()
     {
-        InvokeRepeating("SpawnOrder", firstSpawn, spawnInterval);
+        //InvokeRepeating("SpawnOrder", firstSpawn, spawnInterval);
     }
 
     void SpawnOrder()
