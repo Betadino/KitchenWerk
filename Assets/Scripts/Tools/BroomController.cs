@@ -46,7 +46,7 @@ public class BroomController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == trash) // Clean the trash
+        if (collision.gameObject.tag == "Trash") // Clean the trash
         {
             Destroy(collision.gameObject);
 
