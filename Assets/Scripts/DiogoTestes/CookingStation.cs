@@ -15,21 +15,25 @@ public class CookingStation : MonoBehaviour
     // it gets added to the current ingredients list.
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if the collided object has the FoodItem component.
-        FoodItem foodItem = collision.GetComponent<FoodItem>();
-
-        if (foodItem != null)
+        if(!collision.CompareTag("Player"))
         {
-            // Add the food item to the current ingredients list.
-            currentIngredients.Add(foodItem);
+            // Check if the collided object has the FoodItem component.
+            FoodItem foodItem = collision.gameObject.GetComponent<FoodItem>();
+            Debug.Log(foodItem.ToString());
+            if (foodItem != null)
+            {
+                Debug.Log("TA AQUI INGREDIENTE");
+                // Add the food item to the current ingredients list.
+                currentIngredients.Add(foodItem);
 
-            // Destroy the food item GameObject.
-            Destroy(foodItem.gameObject);
+                Debug.Log(currentIngredients);
 
-            // Check if the recipe can be cooked with the current ingredients.
-            CheckRecipe();
+                // Check if the recipe can be cooked with the current ingredients.
+                CheckRecipe();
+            }
         }
     }
+        
 
     // This method checks if the current ingredients match any recipe.
     void CheckRecipe()
@@ -78,6 +82,6 @@ public class CookingStation : MonoBehaviour
 
         // Instantiate the resulting food item at the cooking station's position.
         FoodItem result = Instantiate(recipe.result, transform.position, Quaternion.identity);
-        //currentIngredients.Add(result);
+        currentIngredients.Add(result);
     }
 }

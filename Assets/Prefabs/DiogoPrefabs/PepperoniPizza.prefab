@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 723375641805109133}
   - component: {fileID: 5858496831628647416}
   - component: {fileID: 7180134207775276835}
+  - component: {fileID: 5138164143371516217}
   m_Layer: 0
   m_Name: PepperoniPizza
   m_TagString: Untagged
@@ -99,3 +100,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: PepperoniPizza
   itemSprite: {fileID: 21300000, guid: e4bf85f9fe365164db409dd1cda927ae, type: 3}
+--- !u!50 &5138164143371516217
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8663856772604397147}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

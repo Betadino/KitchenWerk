@@ -45,17 +45,13 @@ public class ControladorGay : MonoBehaviour
             // Visualize the Raycast in the Scene view
             Debug.DrawRay(raycastOrigin, transform.up * maxDistance, Color.green);
 
-            Debug.Log("Raycast hit: " + hit.collider); // Debug statement
-
             if (hit.collider != null)
             {
-                Debug.Log("Hit object: " + hit.collider.gameObject.name); // Additional debug statement
-
                 FoodItem foodItem = hit.collider.GetComponent<FoodItem>();
                 if (foodItem != null)
                 {
                     // Pick up the item
-                    Debug.Log("Picked up: " + foodItem.itemName); // Debug statement
+                    Debug.Log("Picked up: " + foodItem.itemName);
                     heldItem = foodItem;
                     heldItem.transform.SetParent(holdPoint);
                     heldItem.transform.localPosition = Vector2.zero;
@@ -63,7 +59,7 @@ public class ControladorGay : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("No FoodItem component found on the hit object."); // Debug statement
+                    Debug.Log("No FoodItem component found on the hit object.");
                 }
             }
         }
@@ -77,7 +73,7 @@ public class ControladorGay : MonoBehaviour
                 if (station != null)
                 {
                     // Drop the item into the cooking station
-                    Debug.Log("Dropped into cooking station"); // Debug statement
+                    Debug.Log("Dropped into cooking station");
                     heldItem.transform.SetParent(null);
                     heldItem.GetComponent<Collider2D>().enabled = true;
                     heldItem = null;
@@ -88,7 +84,7 @@ public class ControladorGay : MonoBehaviour
             // If not near a cooking station, drop the item on the ground
             heldItem.transform.SetParent(null);
             heldItem.GetComponent<Collider2D>().enabled = true;
-            Debug.Log("Dropped on the ground"); // Debug statement
+            Debug.Log("Dropped on the ground");
             heldItem = null;
         }
     }
