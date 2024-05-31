@@ -60,12 +60,12 @@ public class RatController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // If the rat is in the target, the target is not pickable
-        collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        collision.gameObject.GetComponent<Collider2D>().enabled = false;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         // If the rat is not in the target, the target is pickable
-        collision.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+        collision.gameObject.GetComponent<Collider2D>().enabled = true;
     }
 }
