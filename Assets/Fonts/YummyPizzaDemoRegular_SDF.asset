@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: YummyPizzaDemoRegular_SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 813107802
   material: {fileID: 8654461235320587803}
-  materialHashCode: 0
+  materialHashCode: 1098891578
   m_Version: 1.1.0
   m_SourceFontFileGUID: 1e34cf6b4c2df9841bb6c44d852d1a01
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 1e34cf6b4c2df9841bb6c44d852d1a01, type: 3}
@@ -2631,9 +2631,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
