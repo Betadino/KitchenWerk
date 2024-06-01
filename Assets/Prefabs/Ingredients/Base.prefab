@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7381489365612590194}
-  - component: {fileID: 8051244322386867960}
   - component: {fileID: 3395860796373171732}
-  - component: {fileID: 2913275448993237730}
+  - component: {fileID: 8051244322386867960}
+  - component: {fileID: 8442485912901246311}
   m_Layer: 0
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,6 +34,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3395860796373171732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6189213603021219597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d075c7e481d6b4c8f5e8ded043c139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Base
+  itemSprite: {fileID: 7263268330721350690, guid: 661732c3e095a2f41bf3cba225449936, type: 3}
 --- !u!212 &8051244322386867960
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86,22 +100,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3395860796373171732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6189213603021219597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2d075c7e481d6b4c8f5e8ded043c139, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Base
-  itemSprite: {fileID: 7263268330721350690, guid: 661732c3e095a2f41bf3cba225449936, type: 3}
---- !u!61 &2913275448993237730
-BoxCollider2D:
+--- !u!58 &8442485912901246311
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -133,15 +133,5 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
-  m_EdgeRadius: 0
+  m_Radius: 0.43
