@@ -39,6 +39,5 @@ public class BumController : MonoBehaviour
 
             bumIsDestroyed = true;
         }
-
     }
 }

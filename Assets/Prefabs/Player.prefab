@@ -92,7 +92,7 @@ Transform:
   m_GameObject: {fileID: 5758976039224999841}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.081, y: 0.005, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -233,8 +233,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2870609616625375120}
   lookDirection: {x: 0, y: 0}
   mousePosition: {x: 0, y: 0}
-  upg_hasSprint: 0
-  upg_hasDash: 0
   holdArea: {fileID: 1688417127075010411}
   currentItem: {fileID: 0}
 --- !u!114 &2809954535865424830

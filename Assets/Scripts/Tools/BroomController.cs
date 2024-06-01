@@ -5,14 +5,14 @@ using UnityEngine;
 public class BroomController : MonoBehaviour
 {
     private GameObject player;
-    private GameObject holdBroom;
+    private GameObject broom;
     private GameObject trash;
     public static bool isPickedUp = false;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        holdBroom = GameObject.FindWithTag("HoldBroom");
+        broom = GameObject.FindWithTag("Broom");
         trash = GameObject.FindWithTag("Trash");
     }
 
@@ -21,7 +21,7 @@ public class BroomController : MonoBehaviour
         if (isPickedUp)
         {
             // Adjusts the position and rotation of the broom relative to the player
-            transform.position = holdBroom.transform.position;
+            transform.position = broom.transform.position;
             transform.rotation = player.transform.rotation;
         }
 

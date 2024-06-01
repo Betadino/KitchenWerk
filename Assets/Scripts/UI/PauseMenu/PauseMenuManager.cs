@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 
 public class PauseMenuManager : MonoBehaviour
@@ -82,6 +83,11 @@ public class PauseMenuManager : MonoBehaviour
     public void LoadUpgradeScreen()
     {
         E_loadPauseUpgradeScreen?.Invoke();
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 	#endregion
 }
