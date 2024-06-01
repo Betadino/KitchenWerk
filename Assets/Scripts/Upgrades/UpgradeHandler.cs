@@ -10,40 +10,96 @@ public class UpgradeHandler : MonoBehaviour
     public GameObject moneyText;
     public GameObject dashCostText;
     public GameObject sprintCostText;
-    public GameObject scoreMultText;
+    public GameObject moneyMultCostText;
+    public GameObject moneyMultLevelText;
+    public GameObject scoreMultCostText;
+    public GameObject scoreMultLevelText;
 
     //_______________Events______________________________
     public static event Action<int> E_BoughtDash;
     public static event Action<int> E_BoughtSprint;
-    public static event Action<int> E_BoughScoreMult;
+    public static event Action<int> E_BoughMoneyMult;
+    public static event Action<int> E_BoughtScoreMult;
 
     //____________Upgrade Costs___________________________
     private int dashCost = 1000;
     private int sprintCost = 1000;
+    private int moneyMultCost = 1000;
     private int scoreMultCost = 1000;
-
-    //______________Bools________________________
-    public static bool hasDash = false;
-    public static bool hasSprint = false;
-
-    private int scoreMultCurrentLevel = 0;
-    private int scoreMultMaxLevel = 3;
-    private float scoreMultValue = 1.25f;
-
 
     void Start()
     {
         moneyText.GetComponent<TextMeshProUGUI>().text = GameManager.Instance.money.ToString();
         dashCostText.GetComponent<TextMeshProUGUI>().text = dashCost.ToString();
         sprintCostText.GetComponent<TextMeshProUGUI>().text = sprintCost.ToString();
-    }
+		moneyMultCostText.GetComponent<TextMeshProUGUI>().text = moneyMultCost.ToString();
+        moneyMultLevelText.GetComponent<TextMeshProUGUI>().text = "(" + GameManager.Instance.moneyMultLevel.ToString() + "/" + GameManager.Instance.moneyMultMaxLevel.ToString() + ")";
+		scoreMultCostText.GetComponent<TextMeshProUGUI>().text = scoreMultCost.ToString();
+		scoreMultLevelText.GetComponent<TextMeshProUGUI>().text = "(" + GameManager.Instance.scoreMultLevel.ToString() + "/" + GameManager.Instance.scoreMultMaxLevel.ToString() + ")";
+	}
 
     void Update()
     {
         moneyText.GetComponent<TextMeshProUGUI>().text = GameManager.Instance.money.ToString();
-    }
+		moneyMultLevelText.GetComponent<TextMeshProUGUI>().text = "(" + GameManager.Instance.moneyMultLevel.ToString() + "/" + GameManager.Instance.moneyMultMaxLevel.ToString() + ")";
+		scoreMultLevelText.GetComponent<TextMeshProUGUI>().text = "(" + GameManager.Instance.scoreMultLevel.ToString() + "/" + GameManager.Instance.scoreMultMaxLevel.ToString() + ")";
 
-    public void BuyDash()
+        if (GameManager.Instance.hasDash)
+        {
+            dashCostText.GetComponent<TextMeshProUGUI>().text = "BOUGHT!";
+        }
+
+		if (GameManager.Instance.hasSprint)
+		{
+			sprintCostText.GetComponent<TextMeshProUGUI>().text = "BOUGHT!";
+		}
+
+		#region MONEY MULT
+		switch (GameManager.Instance.moneyMultLevel)
+        {
+            case 0:
+				moneyMultCost = 1000;
+				moneyMultCostText.GetComponent<TextMeshProUGUI>().text = moneyMultCost.ToString();
+				break;
+            case 1:
+				moneyMultCost = 1500;
+				moneyMultCostText.GetComponent<TextMeshProUGUI>().text = moneyMultCost.ToString();
+				break;
+            case 2:
+				moneyMultCost = 2000;
+				moneyMultCostText.GetComponent<TextMeshProUGUI>().text = moneyMultCost.ToString();
+				break;
+            case 3:
+				moneyMultCost = 0000;
+				moneyMultCostText.GetComponent<TextMeshProUGUI>().text = "MAX!";
+                break;
+        }
+		#endregion
+
+		#region SCORE MULT
+        switch (GameManager.Instance.scoreMultLevel)
+        {
+            case 0:
+                scoreMultCost = 1000;
+                scoreMultCostText.GetComponent<TextMeshProUGUI>().text = scoreMultCost.ToString();
+                break;
+            case 1:
+				scoreMultCost = 1500;
+				scoreMultCostText.GetComponent<TextMeshProUGUI>().text = scoreMultCost.ToString();
+				break;
+            case 2:
+				scoreMultCost = 2000;
+				scoreMultCostText.GetComponent<TextMeshProUGUI>().text = scoreMultCost.ToString();
+				break;
+            case 3:
+				scoreMultCost = 0000;
+				scoreMultCostText.GetComponent<TextMeshProUGUI>().text = "MAX!";
+				break;
+		}
+		#endregion
+	}
+
+	public void BuyDash()
     {
         if (GameManager.Instance.money >= dashCost && GameManager.Instance.hasDash == false)
         {
@@ -61,8 +117,19 @@ public class UpgradeHandler : MonoBehaviour
 		}
     }
 
+    public void BuyMoneyMult()
+    {
+        if (GameManager.Instance.money >= moneyMultCost && GameManager.Instance.moneyMultLevel < GameManager.Instance.moneyMultMaxLevel)
+        {
+			E_BoughMoneyMult?.Invoke(moneyMultCost);
+		}
+    }
+
     public void BuyScoreMult()
     {
-        E_BoughScoreMult?.Invoke(scoreMultCost);
+        if (GameManager.Instance.money >= scoreMultCost && GameManager.Instance.scoreMultLevel < GameManager.Instance.scoreMultMaxLevel)
+        {
+            E_BoughtScoreMult?.Invoke(scoreMultCost);
+        }
     }
 }

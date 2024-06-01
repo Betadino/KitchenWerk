@@ -23,24 +23,26 @@ public class GameManager : Singleton<GameManager>
 	#endregion
 
 	[Space(10)]
+	#region BOOLS
 	[Header("BOOLS")]
 	public bool hasDash = false;
 	public bool hasSprint = false;
-
-	#region EVENTS
-	public static event Action<int> E_BoughScoreMult;
 	#endregion
 
 	private void OnEnable()
 	{
 		UpgradeHandler.E_BoughtDash += SpendMoney;
 		UpgradeHandler.E_BoughtSprint += SpendMoney;
+		UpgradeHandler.E_BoughMoneyMult += LevelUpMoney;
+		UpgradeHandler.E_BoughtScoreMult += LevelUpScore;
 	}
 
 	private void OnDisable()
 	{
 		UpgradeHandler.E_BoughtDash -= SpendMoney;
 		UpgradeHandler.E_BoughtSprint -= SpendMoney;
+		UpgradeHandler.E_BoughMoneyMult -= LevelUpMoney;
+		UpgradeHandler.E_BoughtScoreMult -= LevelUpScore;
 	}
 
 	private void Update()
@@ -102,9 +104,32 @@ public class GameManager : Singleton<GameManager>
 		money += Mathf.RoundToInt(defaultMoneyGain * moneyMultValue);
 	}
 
+	public void GainScore()
+	{
+		playerScore += Mathf.RoundToInt(defaultScoreValue * scoreMultLevel);
+	}
+
 	public void SpendMoney(int amount)
 	{
 		money -= amount;
+	}
+
+	public void LevelUpMoney(int amount)
+	{
+		money -= amount;
+		if (moneyMultLevel < moneyMultMaxLevel)
+		{
+			moneyMultLevel += 1;
+		}
+	}
+
+	public void LevelUpScore(int amount)
+	{
+		money -= amount;
+		if (scoreMultLevel < scoreMultMaxLevel)
+		{
+			scoreMultLevel += 1;
+		}
 	}
 	#endregion
 }
