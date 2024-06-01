@@ -26,10 +26,10 @@ public class MoneyHandler : MonoBehaviour
     void Update()
     {
         //temporary way to make money
-        if (Input.GetKeyDown(KeyCode.M))
+        /*if (Input.GetKeyDown(KeyCode.M))
         {
             GainMoney(200);
-        }
+        }*/
     }
 
     public void SpendMoney(int ammount)

@@ -66,7 +66,7 @@ public class PlayerWalkingState : IPlayerMovementStates
         //go to running state
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            if(player.upg_hasSprint)
+            if(GameManager.Instance.hasSprint)
             {
                 player.SwitchMovementState(player.playerRunningState);
             }
@@ -75,7 +75,7 @@ public class PlayerWalkingState : IPlayerMovementStates
         //go to dashing state
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (player.upg_hasDash)
+            if (GameManager.Instance.hasDash)
             {
                 player.SwitchMovementState(player.playerDashingState);
             }
@@ -132,7 +132,10 @@ public class PlayerRunningState : IPlayerMovementStates
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-			player.SwitchMovementState(player.playerDashingState);
+            if (GameManager.Instance.hasDash)
+            {
+				player.SwitchMovementState(player.playerDashingState);
+			}
 		}
     }
 

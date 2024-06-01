@@ -9,10 +9,6 @@ public class PlayerController : MonoBehaviour
     public Vector2 mousePosition;
     private Camera camera;
 
-    //________________Upgrade Bools________________
-    public bool upg_hasSprint = false;
-    public bool upg_hasDash = false;
-
     //_________________Movements____________________
     private IPlayerMovementStates currentMovementState;
     public PlayerIdleState playerIdleState = new();
@@ -36,16 +32,12 @@ public class PlayerController : MonoBehaviour
 	{
         GameStateManager.E_GamePaused += HandleGamePaused;
         GameStateManager.E_GameUnpaused += HandleGameUnpaused;
-        UpgradeHandler.E_BoughtDash += HandleDashBought;
-        UpgradeHandler.E_BoughtSprint += HandleSprintBought;
 	}
 
 	private void OnDisable()
 	{
 		GameStateManager.E_GamePaused -= HandleGamePaused;
 		GameStateManager.E_GameUnpaused -= HandleGameUnpaused;
-		UpgradeHandler.E_BoughtDash -= HandleDashBought;
-		UpgradeHandler.E_BoughtSprint -= HandleSprintBought;
 	}
 
 	public void Start()
@@ -111,16 +103,6 @@ public class PlayerController : MonoBehaviour
 	{
 		gameIsPaused = false;
 	}
-
-    public void HandleDashBought(int i)
-    {
-        upg_hasDash = true;
-    }
-
-    public void HandleSprintBought(int i)
-    {
-        upg_hasSprint = true;
-    }
 	#endregion
 
 	//funcao de rodar o jogador
