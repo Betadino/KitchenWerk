@@ -57,10 +57,6 @@ public class ControladorGay : MonoBehaviour
                     heldItem.transform.localPosition = Vector2.zero;
                     heldItem.GetComponent<Collider2D>().enabled = false; // Disable the collider to avoid unwanted interactions
                 }
-                else
-                {
-                    Debug.Log("No FoodItem component found on the hit object.");
-                }
             }
         }
         else

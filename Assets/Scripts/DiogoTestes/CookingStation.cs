@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// This script handles the cooking station where ingredients are combined
-// to produce the final food item according to a recipe.
 public class CookingStation : MonoBehaviour
 {
     // A list to keep track of the current ingredients at the cooking station.
@@ -22,11 +20,8 @@ public class CookingStation : MonoBehaviour
             Debug.Log(foodItem.ToString());
             if (foodItem != null)
             {
-                Debug.Log("TA AQUI INGREDIENTE");
                 // Add the food item to the current ingredients list.
                 currentIngredients.Add(foodItem);
-
-                Debug.Log(currentIngredients);
 
                 // Check if the recipe can be cooked with the current ingredients.
                 CheckRecipe();

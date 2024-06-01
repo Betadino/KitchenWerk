@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7444395758249483143
+--- !u!1 &4522819495596835435
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,53 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5486262972117590838}
-  - component: {fileID: 6193809084446647824}
-  - component: {fileID: -212520640772961357}
-  - component: {fileID: -4199844193744167485}
+  - component: {fileID: 1465128405080647824}
+  - component: {fileID: 806290101658013188}
+  - component: {fileID: 2816496902271799946}
+  - component: {fileID: -6973437456852237819}
+  - component: {fileID: 3794790143235116810}
+  - component: {fileID: 7647502909047646364}
   m_Layer: 0
   m_Name: Cheese
-  m_TagString: pickable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5486262972117590838
+--- !u!4 &1465128405080647824
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7444395758249483143}
+  m_GameObject: {fileID: 4522819495596835435}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.007513479, y: 0.02503683, z: 0.09121288}
+  m_LocalPosition: {x: 0.86, y: 0.579, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6193809084446647824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7444395758249483143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2d075c7e481d6b4c8f5e8ded043c139, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Cheese
-  itemSprite: {fileID: 21300000, guid: e7b9abe1aaa4c1f43b2de313f19faaf3, type: 3}
---- !u!212 &1463766455554918520
+--- !u!212 &806290101658013188
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7444395758249483143}
+  m_GameObject: {fileID: 4522819495596835435}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -100,13 +88,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6193809084446647824
+--- !u!114 &2816496902271799946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7444395758249483143}
+  m_GameObject: {fileID: 4522819495596835435}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2d075c7e481d6b4c8f5e8ded043c139, type: 3}
@@ -114,30 +102,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Cheese
   itemSprite: {fileID: 21300000, guid: e7b9abe1aaa4c1f43b2de313f19faaf3, type: 3}
---- !u!114 &-212520640772961357
+--- !u!114 &-6973437456852237819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7444395758249483143}
+  m_GameObject: {fileID: 4522819495596835435}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b88e79aa5039af943acfb57455898e40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleCollider: {fileID: 75312665720187680, guid: 4ae79ca256e5fe349a28af7337b46b31, type: 3}
+  circleCollider: {fileID: 3794790143235116810}
   playerGrabArea: {fileID: 0}
   player: {fileID: 0}
-  spriteRenderer: {fileID: 8051244322386867960, guid: 4ae79ca256e5fe349a28af7337b46b31, type: 3}
+  spriteRenderer: {fileID: 806290101658013188}
   inRange: 0
---- !u!58 &-4199844193744167485
+--- !u!58 &3794790143235116810
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7444395758249483143}
+  m_GameObject: {fileID: 4522819495596835435}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -166,3 +154,30 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!50 &7647502909047646364
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4522819495596835435}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

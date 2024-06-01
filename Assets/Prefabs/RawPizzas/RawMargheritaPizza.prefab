@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2461056893903649149}
   - component: {fileID: 8097471279025590279}
   - component: {fileID: 4931462870581393016}
+  - component: {fileID: 1970084490993652281}
   m_Layer: 0
   m_Name: RawMargheritaPizza
   m_TagString: Untagged
@@ -99,3 +100,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: RawMargheritaPizza
   itemSprite: {fileID: 7263268330721350690, guid: 661732c3e095a2f41bf3cba225449936, type: 3}
+--- !u!50 &1970084490993652281
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8580841726517539849}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
