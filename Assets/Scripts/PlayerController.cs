@@ -14,14 +14,6 @@ public class PlayerController : MonoBehaviour
     public Vector2 mousePosition;
     private Camera camera;
 
-<<<<<<< HEAD
-
-    //________________Upgrade Bools________________
-    public bool upg_hasSprint = false;
-    public bool upg_hasDash = false;
-
-=======
->>>>>>> f83e5aea6f0d12aa1a17cd17814bce1c4e981ac7
     //_________________Movements____________________
     private IPlayerMovementStates currentMovementState;
     public PlayerIdleState playerIdleState = new();
