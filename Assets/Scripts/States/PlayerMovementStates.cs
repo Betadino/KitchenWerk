@@ -43,7 +43,7 @@ public class PlayerWalkingState : IPlayerMovementStates
     public float horizontalValue;
     public float verticalValue;
     public Vector2 movement;
-    public float speed = 2f;
+
     public void OnEnterState (PlayerController player)
     {
         player.spriteRenderer.color = Color.blue;
@@ -87,7 +87,7 @@ public class PlayerWalkingState : IPlayerMovementStates
         //move player
         if (movement.sqrMagnitude != 0)
         {
-            player.rb.AddForce(movement * speed);
+            player.rb.AddForce(movement * player.speed);
             //player.transform.position += player.transform.right * speed * movement.x * Time.deltaTime;
         }
     }

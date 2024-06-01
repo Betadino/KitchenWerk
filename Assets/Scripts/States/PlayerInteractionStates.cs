@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerHandsFreeState : IPlayerInteractionStates
 {
     public GameObject selectedObject;
+    PlayerController _player;
     public void OnEnterState(PlayerController player)
     {
         selectedObject = null;
+        _player = player;
     }
 
     public void OnUpdateState(PlayerController player) 
@@ -33,12 +35,22 @@ public class PlayerHandsFreeState : IPlayerInteractionStates
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
-        if (hit.collider != null && hit.collider.gameObject.tag == "pickable")
+        if (hit.collider != null && hit.collider.gameObject.CompareTag("pickable"))
         {
             GameObject objectHit = hit.collider.gameObject;
             if (objectHit.GetComponent<ObjectController>().inRange == true)
             {
 				selectedObject = objectHit;
+			}
+        }
+         if (hit.collider != null && hit.collider.gameObject.CompareTag("crate"))
+        {
+            GameObject objectHit = hit.collider.gameObject;
+            if (objectHit.GetComponent<ObjectController>().inRange == true)
+            {
+                var prefab = objectHit.GetComponent<IngPrefab>().Prefab;
+
+				selectedObject = GameObject.Instantiate(prefab, _player.gameObject.transform.position , Quaternion.identity,  _player.gameObject.transform);
 			}
         }
     }
@@ -51,7 +63,7 @@ public class PlayerIsPickingState : IPlayerInteractionStates
     public void OnEnterState(PlayerController player)
     {
         CheckObject();
-        if (selectedObject != null && selectedObject.tag == "pickable")
+        if (selectedObject != null && selectedObject.CompareTag("pickable"))
         {
             selectedObject.GetComponent<ObjectController>().SwitchState(new ObjectGrabbedState());
         }
@@ -80,7 +92,7 @@ public class PlayerIsPickingState : IPlayerInteractionStates
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
-        if (hit.collider != null && hit.collider.gameObject.tag == "pickable")
+        if (hit.collider != null && hit.collider.gameObject.CompareTag("pickable"))
         {
             GameObject objectHit = hit.collider.gameObject;
             selectedObject = objectHit;

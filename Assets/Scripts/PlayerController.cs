@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player Speed")]
+    public float speed = 1f;
+
+    [Space(20)]
+    [Header("Debugs")]
     public GameObject player;
     public Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
     public Vector2 lookDirection;
     public Vector2 mousePosition;
     private Camera camera;
+
 
     //________________Upgrade Bools________________
     public bool upg_hasSprint = false;
