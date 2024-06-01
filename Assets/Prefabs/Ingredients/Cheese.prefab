@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 5486262972117590838}
   - component: {fileID: 1463766455554918520}
   - component: {fileID: 6193809084446647824}
-  - component: {fileID: 6359263387287006564}
+  - component: {fileID: -212520640772961357}
+  - component: {fileID: -4199844193744167485}
   m_Layer: 0
   m_Name: Cheese
-  m_TagString: Untagged
+  m_TagString: pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,8 +101,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Cheese
   itemSprite: {fileID: 21300000, guid: e7b9abe1aaa4c1f43b2de313f19faaf3, type: 3}
---- !u!61 &6359263387287006564
-BoxCollider2D:
+--- !u!114 &-212520640772961357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444395758249483143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88e79aa5039af943acfb57455898e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circleCollider: {fileID: 75312665720187680, guid: 4ae79ca256e5fe349a28af7337b46b31, type: 3}
+  playerGrabArea: {fileID: 0}
+  player: {fileID: 0}
+  spriteRenderer: {fileID: 8051244322386867960, guid: 4ae79ca256e5fe349a28af7337b46b31, type: 3}
+  inRange: 0
+--- !u!58 &-4199844193744167485
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -129,19 +147,9 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
-    newSize: {x: 0.5, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
-  m_EdgeRadius: 0
+  m_Radius: 0.25

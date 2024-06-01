@@ -26,7 +26,7 @@ public class PlayerHandsFreeState : IPlayerInteractionStates
 
     public void OnExitState(PlayerController player)
     {
-
+        player.currentItem = selectedObject;
     }
 
     public void CheckObject()
@@ -49,8 +49,8 @@ public class PlayerHandsFreeState : IPlayerInteractionStates
             if (objectHit.GetComponent<ObjectController>().inRange == true)
             {
                 var prefab = objectHit.GetComponent<IngPrefab>().Prefab;
+				selectedObject = GameObject.Instantiate(prefab, _player.gameObject.transform.position , Quaternion.identity);
 
-				selectedObject = GameObject.Instantiate(prefab, _player.gameObject.transform.position , Quaternion.identity,  _player.gameObject.transform);
 			}
         }
     }
@@ -62,9 +62,10 @@ public class PlayerIsPickingState : IPlayerInteractionStates
 
     public void OnEnterState(PlayerController player)
     {
-        CheckObject();
+        selectedObject = player.currentItem;
         if (selectedObject != null && selectedObject.CompareTag("pickable"))
         {
+            
             selectedObject.GetComponent<ObjectController>().SwitchState(new ObjectGrabbedState());
         }
     }
@@ -86,16 +87,5 @@ public class PlayerIsPickingState : IPlayerInteractionStates
         selectedObject = null;
     }
 
-    public void CheckObject()
-    {
-        Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
-        if (hit.collider != null && hit.collider.gameObject.CompareTag("pickable"))
-        {
-            GameObject objectHit = hit.collider.gameObject;
-            selectedObject = objectHit;
-        }
-    }
+   
 }

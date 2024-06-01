@@ -33,7 +33,7 @@ public class ObjectController : MonoBehaviour
 
 	void Start()
     {
-        currentState = idleState;
+        currentState = grabbableState;
         currentState.OnEnterState(this);
         playerGrabArea = GameObject.Find("HoldArea");
         player = GameObject.Find("Player");

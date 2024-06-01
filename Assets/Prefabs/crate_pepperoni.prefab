@@ -92,6 +92,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1035129285972731362, guid: 7416c23da2e5c834ba03639a228951b9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2495092162382608195, guid: 7416c23da2e5c834ba03639a228951b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -134,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8357983380475253575, guid: 7416c23da2e5c834ba03639a228951b9, type: 3}
       propertyPath: m_Name
-      value: crate Variant
+      value: crate_pepperoni
       objectReference: {fileID: 0}
     - target: {fileID: 8833004320334355252, guid: 7416c23da2e5c834ba03639a228951b9, type: 3}
       propertyPath: Prefab

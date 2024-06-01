@@ -7,7 +7,6 @@ public class ObjectIdleState : IObjectStates
 	private float minDistance = 0f;
     public void OnEnterState(ObjectController obj)
     {
-        obj.circleCollider.isTrigger = false;
 		obj.inRange = false;
 		minDistance = obj.transform.localScale.x * 3;
     }
@@ -18,6 +17,7 @@ public class ObjectIdleState : IObjectStates
 		if (distance <= minDistance)
 		{
 			obj.SwitchState(obj.grabbableState);
+			Debug.Log("lelel");
 		}
 	}
 
@@ -40,7 +40,6 @@ public class ObjectGrabbableState : IObjectStates
 	private float minDistance = 0f;
 	public void OnEnterState(ObjectController obj)
 	{
-		obj.circleCollider.isTrigger = false;
 		obj.inRange = true;
 		minDistance = obj.transform.localScale.x * 3;
 	}
@@ -51,6 +50,7 @@ public class ObjectGrabbableState : IObjectStates
 		if (distance > minDistance)
 		{
 			obj.SwitchState(obj.idleState);
+			Debug.Log("ddd");
 		}
 		//Debug.Log(distance);
 	}
@@ -72,16 +72,17 @@ public class ObjectGrabbedState : IObjectStates
 {
     public void OnEnterState(ObjectController obj)
     {
-		obj.circleCollider.isTrigger = true;
+		Debug.Log("enter");
     }
     public void OnUpdateState(ObjectController obj)
     {
+		Debug.Log(obj);
         obj.transform.position = obj.playerGrabArea.transform.position;
 		obj.spriteRenderer.color = Color.blue;
     }
 
     public void OnExitState(ObjectController obj)
     {
-
+		Debug.Log("exit");
     }
 }

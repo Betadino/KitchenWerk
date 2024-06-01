@@ -9,6 +9,7 @@ TagManager:
   - Broom
   - HoldBroom
   - Trash
+  - crate
   layers:
   - Default
   - TransparentFX
