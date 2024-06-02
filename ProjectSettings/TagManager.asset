@@ -10,6 +10,7 @@ TagManager:
   - HoldBroom
   - Trash
   - crate
+  - oven
   layers:
   - Default
   - TransparentFX
