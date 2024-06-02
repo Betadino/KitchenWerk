@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 595c90f45454a6643a4f7db2c03a269b
+  - enabled: 1
+    path: Assets/Scenes/TomasTesting.unity
+    guid: f684787a4d99b9e49845e35633017da1
   m_configObjects: {}
