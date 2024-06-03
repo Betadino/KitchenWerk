@@ -136,6 +136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: crate_basil
       objectReference: {fileID: 0}
+    - target: {fileID: 8833004320334355252, guid: 7416c23da2e5c834ba03639a228951b9, type: 3}
+      propertyPath: Prefab
+      value: 
+      objectReference: {fileID: 3214965982473093084, guid: 1beff6f3ded1db04aab976e9106d506d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

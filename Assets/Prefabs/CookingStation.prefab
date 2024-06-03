@@ -95,6 +95,8 @@ MonoBehaviour:
   recipeList:
   - {fileID: 11400000, guid: 37496906f3fd0bb4cb4a25dcf055141f, type: 2}
   - {fileID: 11400000, guid: e330a0f23a6d94e41a2d466f268bdd0e, type: 2}
+  - {fileID: 11400000, guid: b6b29c511822d204c84d87f59886e21b, type: 2}
+  - {fileID: 11400000, guid: 106d87cf90da41e49b1469d5c7af23a9, type: 2}
 --- !u!212 &8651752837043042919
 SpriteRenderer:
   m_ObjectHideFlags: 0
