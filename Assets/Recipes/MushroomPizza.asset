@@ -15,7 +15,7 @@ MonoBehaviour:
   recipeName: MushroomPizza
   ingredients:
   - {fileID: 3395860796373171732, guid: 4ae79ca256e5fe349a28af7337b46b31, type: 3}
-  - {fileID: 6193809084446647824, guid: 048ba0a9c354ed84ca3bf205ae9d4213, type: 3}
+  - {fileID: 19820255878771476, guid: 73afe50d06d0db24c9365ff28a36e10d, type: 3}
   - {fileID: 7086428728893699233, guid: 5825743371933ca49b90a812f62aae81, type: 3}
-  - {fileID: 7262262992757734046, guid: 73afe50d06d0db24c9365ff28a36e10d, type: 3}
+  - {fileID: 2816496902271799946, guid: 048ba0a9c354ed84ca3bf205ae9d4213, type: 3}
   result: {fileID: 6783175233695292594, guid: 6b19413989765c14f92f6eba5d1bf7f2, type: 3}

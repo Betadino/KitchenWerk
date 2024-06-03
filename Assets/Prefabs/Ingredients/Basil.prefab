@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d075c7e481d6b4c8f5e8ded043c139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Tomato
-  itemSprite: {fileID: 21300000, guid: b82f7ec131154674f90be4792b692b94, type: 3}
+  itemName: Basil
+  itemSprite: {fileID: 21300000, guid: 7904bc23bd2a30849a3f74fa741f5202, type: 3}
 --- !u!114 &-8084200957409858976
 MonoBehaviour:
   m_ObjectHideFlags: 0
