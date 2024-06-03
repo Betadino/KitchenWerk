@@ -19,7 +19,6 @@ public class CookingStation : MonoBehaviour
         {
             // Check if the collided object has the FoodItem component.
             FoodItem foodItem = collision.gameObject.GetComponent<FoodItem>();
-            Debug.Log(foodItem.ToString());
             if (foodItem != null)
             {
                 // Add the food item to the current ingredients list.

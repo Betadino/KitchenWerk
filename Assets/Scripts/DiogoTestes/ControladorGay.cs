@@ -51,7 +51,6 @@ public class ControladorGay : MonoBehaviour
                 if (foodItem != null)
                 {
                     // Pick up the item
-                    Debug.Log("Picked up: " + foodItem.itemName);
                     heldItem = foodItem;
                     heldItem.transform.SetParent(holdPoint);
                     heldItem.transform.localPosition = Vector2.zero;
