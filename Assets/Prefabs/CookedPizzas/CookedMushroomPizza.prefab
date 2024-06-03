@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 5985680365307324055}
   - component: {fileID: 3586093964832414587}
   - component: {fileID: 5841035706316442479}
+  - component: {fileID: -5298830569538279950}
+  - component: {fileID: 2781322181879008432}
   m_Layer: 0
   m_Name: CookedMushroomPizza
-  m_TagString: Untagged
+  m_TagString: pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,3 +101,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: CookedMushroomPizza
   itemSprite: {fileID: -4828563081201235099, guid: 661732c3e095a2f41bf3cba225449936, type: 3}
+--- !u!114 &-5298830569538279950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072413544590538267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88e79aa5039af943acfb57455898e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circleCollider: {fileID: 2781322181879008432}
+  playerGrabArea: {fileID: 0}
+  player: {fileID: 0}
+  spriteRenderer: {fileID: 3586093964832414587}
+  inRange: 0
+--- !u!58 &2781322181879008432
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072413544590538267}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4

@@ -17,7 +17,6 @@ public class ObjectIdleState : IObjectStates
 		if (distance <= minDistance)
 		{
 			obj.SwitchState(obj.grabbableState);
-			Debug.Log("lelel");
 		}
 	}
 
@@ -50,7 +49,6 @@ public class ObjectGrabbableState : IObjectStates
 		if (distance > minDistance)
 		{
 			obj.SwitchState(obj.idleState);
-			Debug.Log("ddd");
 		}
 		//Debug.Log(distance);
 	}
@@ -72,17 +70,16 @@ public class ObjectGrabbedState : IObjectStates
 {
     public void OnEnterState(ObjectController obj)
     {
-		Debug.Log("enter");
+		
     }
     public void OnUpdateState(ObjectController obj)
     {
-		Debug.Log(obj);
         obj.transform.position = obj.playerGrabArea.transform.position;
 		obj.spriteRenderer.color = Color.blue;
     }
 
     public void OnExitState(ObjectController obj)
     {
-		Debug.Log("exit");
+		
     }
 }
