@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class CookingStation : MonoBehaviour
 {
+    public Customer currentCustomer;
+
     // A list to keep track of the current ingredients at the cooking station.
     public List<FoodItem> currentIngredients = new List<FoodItem>();
 
@@ -77,6 +79,11 @@ public class CookingStation : MonoBehaviour
 
         // Instantiate the resulting food item at the cooking station's position.
         FoodItem result = Instantiate(recipe.result, transform.position, Quaternion.identity);
-        currentIngredients.Add(result);
+
+        // Serve the dish to the current customer.
+        if (currentCustomer != null)
+        {
+            currentCustomer.Serve(result);
+        }
     }
 }
