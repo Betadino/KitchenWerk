@@ -6,20 +6,19 @@ public class BroomController : MonoBehaviour
 {
     private GameObject player;
     private GameObject broom;
-    private GameObject trash;
     public static bool isPickedUp = false;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        broom = GameObject.FindWithTag("Broom");
-        trash = GameObject.FindWithTag("Trash");
+        broom = GameObject.FindWithTag("HoldBroom"); // Empty object inside player for the broom position
     }
 
     void Update()
     {
         if (isPickedUp)
         {
+            Vector3 v = player.transform.position;
             // Adjusts the position and rotation of the broom relative to the player
             transform.position = broom.transform.position;
             transform.rotation = player.transform.rotation;

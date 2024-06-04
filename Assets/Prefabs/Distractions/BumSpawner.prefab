@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bum: {fileID: 7693632165511672099, guid: c244f553510d79d46a4ea68b178f850d, type: 3}
-  spawnInterval: 10
+  spawnInterval: 20

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 440984782453480725}
   - component: {fileID: 8749822938760633106}
   m_Layer: 0
-  m_Name: forno
+  m_Name: Forno
   m_TagString: oven
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 6614205283958204593, guid: 700c80d4eded23f478ec5aa7cf81407a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -152,6 +152,8 @@ MonoBehaviour:
   doorOpen: 0
   isCooking: 0
   isPizzaInside: 0
+  isCooked: 0
+  currentPizza: {fileID: 0}
 --- !u!58 &8749822938760633106
 CircleCollider2D:
   m_ObjectHideFlags: 0

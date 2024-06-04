@@ -32,8 +32,8 @@ public class BumController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        // If the player interacts with the bum, the bum goes away
-        if (Input.GetKey(KeyCode.E))
+        // If the player has the broom and interacts with the bum, the bum goes away
+        if (BroomController.isPickedUp && Input.GetKey(KeyCode.E))
         { 
             Destroy(gameObject);
 

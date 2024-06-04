@@ -11,6 +11,7 @@ TagManager:
   - Trash
   - crate
   - oven
+  - test
   layers:
   - Default
   - TransparentFX

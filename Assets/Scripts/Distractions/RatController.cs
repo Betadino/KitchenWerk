@@ -19,6 +19,10 @@ public class RatController : MonoBehaviour
         targets = GameObject.FindGameObjectsWithTag("pickable");
 
         selectedWaypoint = ChooseWaypoint();
+        if (selectedWaypoint == Vector3.zero) // If there isn't any pickable, it's destroyed
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
@@ -50,11 +54,18 @@ public class RatController : MonoBehaviour
 
     Vector3 ChooseWaypoint()
     {
-        // Select a random target from the targets list
-        int randomIndex = Random.Range(0, targets.Length);
-        GameObject randomTarget = targets[randomIndex];
+        if (targets.Length == 0) // If there isn't any pickable
+        {
+            return Vector3.zero;
+        }
+        else
+        {
+            // Select a random target from the targets list
+            int randomIndex = Random.Range(0, targets.Length);
+            GameObject randomTarget = targets[randomIndex];
 
-        return randomTarget.transform.position;
+            return randomTarget.transform.position;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Counter
+  m_Name: woodfloor
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -3167927745155028308, guid: 661732c3e095a2f41bf3cba225449936, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e02aaa53e1fe21249a4cb0e5f88bfae0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

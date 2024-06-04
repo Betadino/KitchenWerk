@@ -6,7 +6,7 @@ public class RatSpawner : MonoBehaviour
 {
     public GameObject rat;
 
-    public float spawnInterval = 10f; // Interval between spawns in seconds
+    public float spawnInterval = 15f; // Interval between spawns in seconds
 
     void Start()
     {
