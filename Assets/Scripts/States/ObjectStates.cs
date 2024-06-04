@@ -12,7 +12,7 @@ public class ObjectIdleState : IObjectStates
     }
     public void OnUpdateState(ObjectController obj)
     {
-		obj.spriteRenderer.color = Color.red;
+		//obj.spriteRenderer.color = Color.red;
 		distance = CheckPlayerDist(obj.transform.position, obj.player.transform.position);
 		if (distance <= minDistance)
 		{
@@ -44,7 +44,7 @@ public class ObjectGrabbableState : IObjectStates
 	}
 	public void OnUpdateState(ObjectController obj)
 	{
-		obj.spriteRenderer.color = Color.green;
+		//obj.spriteRenderer.color = Color.green;
 		distance = CheckPlayerDist(obj.transform.position, obj.player.transform.position);
 		if (distance > minDistance)
 		{
@@ -75,7 +75,7 @@ public class ObjectGrabbedState : IObjectStates
     public void OnUpdateState(ObjectController obj)
     {
         obj.transform.position = obj.playerGrabArea.transform.position;
-		obj.spriteRenderer.color = Color.blue;
+		//obj.spriteRenderer.color = Color.blue;
     }
 
     public void OnExitState(ObjectController obj)
