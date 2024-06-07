@@ -3,6 +3,7 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     public Order currentOrder;
+    public UIManager uiManager;
 
     // This method is called to serve a dish to the customer
     public void Serve(FoodItem servedItem)
@@ -11,6 +12,7 @@ public class Customer : MonoBehaviour
         {
             Debug.Log("Customer is satisfied with the order: " + currentOrder.orderName);
             // Handle customer satisfaction (e.g., increase score, remove customer, etc.)
+            uiManager.ClearOrderText();
         }
         else
         {

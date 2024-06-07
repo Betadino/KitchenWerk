@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ControladorGay : MonoBehaviour
 {
-    public float moveSpeed = 1f;
+    public float moveSpeed = 2f;
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private FoodItem heldItem; // The item currently held by the player
@@ -68,7 +68,6 @@ public class ControladorGay : MonoBehaviour
                 if (station != null)
                 {
                     // Drop the item into the cooking station
-                    Debug.Log("Dropped into cooking station");
                     heldItem.transform.SetParent(null);
                     heldItem.GetComponent<Collider2D>().enabled = true;
                     heldItem = null;
@@ -79,7 +78,6 @@ public class ControladorGay : MonoBehaviour
             // If not near a cooking station, drop the item on the ground
             heldItem.transform.SetParent(null);
             heldItem.GetComponent<Collider2D>().enabled = true;
-            Debug.Log("Dropped on the ground");
             heldItem = null;
         }
     }

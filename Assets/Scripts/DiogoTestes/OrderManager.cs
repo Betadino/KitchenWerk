@@ -5,6 +5,7 @@ public class OrderManager : MonoBehaviour
 {
     public List<Recipe> availableRecipes;
     public List<Customer> customers;
+    public UIManager uiManager;
 
     private void Start()
     {
@@ -18,6 +19,8 @@ public class OrderManager : MonoBehaviour
             Recipe randomRecipe = availableRecipes[Random.Range(0, availableRecipes.Count)];
             customer.currentOrder = new Order(randomRecipe.recipeName, randomRecipe);
             Debug.Log("Generated order for customer: " + customer.currentOrder.orderName);
+
+            uiManager.UpdateOrderText(customer.currentOrder.orderName);
         }
     }
 }
