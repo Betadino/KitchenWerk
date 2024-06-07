@@ -8,7 +8,7 @@ public class ObjectIdleState : IObjectStates
     public void OnEnterState(ObjectController obj)
     {
 		obj.inRange = false;
-		minDistance = obj.transform.localScale.x * 3;
+		minDistance = obj.transform.localScale.x * 2;
     }
     public void OnUpdateState(ObjectController obj)
     {
@@ -40,7 +40,7 @@ public class ObjectGrabbableState : IObjectStates
 	public void OnEnterState(ObjectController obj)
 	{
 		obj.inRange = true;
-		minDistance = obj.transform.localScale.x * 3;
+		minDistance = obj.transform.localScale.x * 2;
 	}
 	public void OnUpdateState(ObjectController obj)
 	{

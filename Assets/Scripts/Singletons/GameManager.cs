@@ -3,8 +3,12 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-	#region SCORE VARS
-	[Header("SCORE")]
+    #region EVENTS
+    public static event Action E_oven;
+    #endregion
+
+    #region SCORE VARS
+    [Header("SCORE")]
 	public int playerScore = 0;
 	public int defaultScoreValue = 100;
 	public int scoreMultLevel = 0;
@@ -27,9 +31,14 @@ public class GameManager : Singleton<GameManager>
 	[Header("BOOLS")]
 	public bool hasDash = false;
 	public bool hasSprint = false;
-	#endregion
+    #endregion
 
-	private void OnEnable()
+    public static void SetOvenDoor()
+    {
+        E_oven?.Invoke();
+    }
+
+    private void OnEnable()
 	{
 		UpgradeHandler.E_BoughtDash += SpendMoney;
 		UpgradeHandler.E_BoughtSprint += SpendMoney;
@@ -94,6 +103,7 @@ public class GameManager : Singleton<GameManager>
 	}
 
 	#region ADD STUFF
+
 	public void AddScore()
 	{
 		playerScore += Mathf.RoundToInt(defaultScoreValue * scoreMultValue);

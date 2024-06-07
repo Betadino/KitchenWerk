@@ -16,12 +16,12 @@ public class OvenController : MonoBehaviour
     {   
         isPizzaInside = false;
         ovenStatesHandler = new();
-        GameSubject.E_oven += HandleOvenDoor;
+        GameManager.E_oven += HandleOvenDoor;
         ovenStatesHandler.SetState(new OvenClosedState(), this);
     }
     
      void OnDisable() {
-        GameSubject.E_oven -= HandleOvenDoor;
+        GameManager.E_oven -= HandleOvenDoor;
     }
 
 

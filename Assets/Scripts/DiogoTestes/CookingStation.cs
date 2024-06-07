@@ -15,11 +15,11 @@ public class CookingStation : MonoBehaviour
     // it gets added to the current ingredients list.
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!collision.CompareTag("Player"))
+        if(!collision.CompareTag("Player") && !collision.CompareTag("Rat"))
         {
             // Check if the collided object has the FoodItem component.
             FoodItem foodItem = collision.gameObject.GetComponent<FoodItem>();
-            if (foodItem != null)
+            if (foodItem != null && !foodItem.name.StartsWith("Raw") && !foodItem.name.StartsWith("Cooked"))
             {
                 // Add the food item to the current ingredients list.
                 currentIngredients.Add(foodItem);
@@ -29,7 +29,7 @@ public class CookingStation : MonoBehaviour
             }
         }
     }
-        
+    
 
     // This method checks if the current ingredients match any recipe.
     void CheckRecipe()

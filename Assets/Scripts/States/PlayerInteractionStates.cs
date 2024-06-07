@@ -56,7 +56,7 @@ public class PlayerHandsFreeState : IPlayerInteractionStates
 
          if (hit.collider != null && hit.collider.gameObject.CompareTag("oven"))
         {
-            GameSubject.SetOvenDoor();
+            GameManager.SetOvenDoor();
         }
     }
 }
