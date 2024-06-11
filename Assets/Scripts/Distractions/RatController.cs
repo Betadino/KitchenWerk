@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering;
 
 public class RatController : MonoBehaviour
 {
     private GameObject player;
     public GameObject ratHole;
+    public float destroyTimer = 5f;
+    private bool targetIsDestroyed = false;
 
     public GameObject[] targets; // List to store targets
 
@@ -28,6 +30,27 @@ public class RatController : MonoBehaviour
     private void Update()
     {
         MoveToTarget(selectedWaypoint);
+
+        // If the player has the broom and is close to the rat
+        if (BroomController.isPickedUp == true && Vector2.Distance(gameObject.transform.position, player.transform.position) <= 0.5f)
+        {
+            // Move the rat towards the hole
+            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, ratHole.transform.position, 2 * Time.deltaTime);
+
+            if (gameObject.transform.position == ratHole.transform.position)
+            {
+                Destroy(gameObject); // The rat is destroyed if it is in the rat hole
+            }
+        }
+        else if (targetIsDestroyed) // If the target is destroyed then the rat will move towards the rat hole
+        {
+            // Move the rat towards the hole
+            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, ratHole.transform.position, 2 * Time.deltaTime);
+            if (gameObject.transform.position == ratHole.transform.position)
+            {
+                Destroy(gameObject); // The rat is destroyed if it is in the rat hole
+            }
+        }
     }
 
     void MoveToTarget(Vector3 waypoint)
@@ -37,18 +60,6 @@ public class RatController : MonoBehaviour
         {
             // Move the rat towards the selected target
             gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, waypoint, 2 * Time.deltaTime);
-        }
-
-        // If the player has the broom and is close to the rat
-        else if (BroomController.isPickedUp == true && Vector2.Distance(gameObject.transform.position, player.transform.position) <= 0.5f)
-        {
-            // Move the rat towards the hole
-            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, ratHole.transform.position, 2 * Time.deltaTime);
-
-            if (gameObject.transform.position == ratHole.transform.position)
-            {
-                Destroy(gameObject); // The rat is destroyed if it is in the rat hole
-            }
         }
     }
 
@@ -68,15 +79,14 @@ public class RatController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        // If the rat is in the target, the target is not pickable
-        //collision.gameObject.GetComponent<Collider2D>().enabled = false;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        // If the rat is not in the target, the target is pickable
-        //collision.gameObject.GetComponent<Collider2D>().enabled = true;
+        // If the rat is in the target and n seconds have passed, then it will destroy the target
+        destroyTimer -= Time.deltaTime;
+        if (destroyTimer < 0)
+        {
+            Destroy(collision.gameObject);
+            targetIsDestroyed = true;
+        }
     }
 }
