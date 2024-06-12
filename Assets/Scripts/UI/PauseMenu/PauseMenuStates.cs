@@ -1,6 +1,6 @@
 public class PauseMainScreenState :IPauseMenuStates
 {
-	private enum Screens {Main, Help, Upgrade};
+	private enum Screens {Main, Help, Upgrade, Recipe};
 	private Screens selectedScreen;
 	public void OnEnterState(PauseMenuManager manager)
 	{
@@ -8,7 +8,8 @@ public class PauseMainScreenState :IPauseMenuStates
 		selectedScreen = Screens.Main;
 		PauseMenuManager.E_loadPauseHelpScreen += HandleHelpScreenSelected;
 		PauseMenuManager.E_loadPauseUpgradeScreen += HandleUpgradeScreenSelected;
-	}
+        PauseMenuManager.E_loadPauseRecipeScreen += HandleRecipeScreenSelected;
+    }
 
 	public void OnUpdateState(PauseMenuManager manager)
 	{
@@ -22,7 +23,10 @@ public class PauseMainScreenState :IPauseMenuStates
 			case Screens.Upgrade:
 				manager.SetState(new PauseUpgradeScreenState());
 				break;
-		}
+            case Screens.Recipe:
+                manager.SetState(new PauseRecipeScreenState());
+                break;
+        }
 	}
 
 	public void OnExitState(PauseMenuManager manager)
@@ -30,7 +34,8 @@ public class PauseMainScreenState :IPauseMenuStates
 		manager.mainScreen.SetActive(false);
 		PauseMenuManager.E_loadPauseHelpScreen -= HandleHelpScreenSelected;
 		PauseMenuManager.E_loadPauseUpgradeScreen -= HandleUpgradeScreenSelected;
-	}
+        PauseMenuManager.E_loadPauseRecipeScreen -= HandleRecipeScreenSelected;
+    }
 
 	public void HandleHelpScreenSelected()
 	{
@@ -41,6 +46,11 @@ public class PauseMainScreenState :IPauseMenuStates
 	{
 		selectedScreen = Screens.Upgrade;
 	}
+
+    public void HandleRecipeScreenSelected()
+    {
+        selectedScreen = Screens.Recipe;
+    }
 }
 
 public class PauseHelpScreenState : IPauseMenuStates
@@ -101,4 +111,34 @@ public class PauseUpgradeScreenState : IPauseMenuStates
 	{
 		canReturn = true;
 	}
+}
+
+public class PauseRecipeScreenState : IPauseMenuStates
+{
+    private bool canReturn = false;
+    public void OnEnterState(PauseMenuManager manager)
+    {
+        manager.recipeScreen.SetActive(true);
+        canReturn = false;
+        PauseMenuManager.E_loadPauseMainScreen += HandleMainScreenSelected;
+    }
+
+    public void OnUpdateState(PauseMenuManager manager)
+    {
+        if (canReturn)
+        {
+            manager.SetState(new PauseMainScreenState());
+        }
+    }
+
+    public void OnExitState(PauseMenuManager manager)
+    {
+        manager.recipeScreen.SetActive(false);
+        PauseMenuManager.E_loadPauseMainScreen -= HandleMainScreenSelected;
+    }
+
+    public void HandleMainScreenSelected()
+    {
+        canReturn = true;
+    }
 }

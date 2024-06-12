@@ -11,6 +11,7 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject mainScreen;
     public GameObject helpScreen;
     public GameObject upgradeScreen;
+    public GameObject recipeScreen;
 
     //___________External Pause Event Stuff___________
     public GameObject objWithGameStateManager;
@@ -20,6 +21,7 @@ public class PauseMenuManager : MonoBehaviour
     public static event Action E_loadPauseMainScreen;
 	public static event Action E_loadPauseHelpScreen;
 	public static event Action E_loadPauseUpgradeScreen;
+    public static event Action E_loadPauseRecipeScreen;
 
 	private void OnEnable()
 	{
@@ -83,6 +85,11 @@ public class PauseMenuManager : MonoBehaviour
     public void LoadUpgradeScreen()
     {
         E_loadPauseUpgradeScreen?.Invoke();
+    }
+
+    public void LoadRecipeScreen()
+    {
+        E_loadPauseRecipeScreen?.Invoke();
     }
 
     public void GoToMainMenu()

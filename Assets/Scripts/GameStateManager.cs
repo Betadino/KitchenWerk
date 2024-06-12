@@ -22,7 +22,7 @@ public class GameStateManager : MonoBehaviour
     void Update()
     {
         currentState.OnUpdateState(this);
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!gameIsPaused) //pause game if unpaused
             {
