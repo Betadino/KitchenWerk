@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class OrderManager : MonoBehaviour
 {
+	private bool hasOrder = false;
 	[Header("Recipes and Customers")]
 	public List<Recipe> availableRecipes;
 	public List<Customer> customers;
