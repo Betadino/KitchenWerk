@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4206114515253301428}
   m_Layer: 0
   m_Name: RatHole
-  m_TagString: Untagged
+  m_TagString: RatHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rat: {fileID: 2226658525220909662, guid: 427f0c30c690fca4d87322ed1383d8fe, type: 3}
-  spawnInterval: 15
+  spawnInterval: 40
