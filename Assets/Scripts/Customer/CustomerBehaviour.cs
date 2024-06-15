@@ -22,7 +22,8 @@ public class CustomerBehaviour : MonoBehaviour
     void CheckDistanceToDestroy()
     {
         float dist = Vector3.Distance(gameObject.transform.position, leavePoint.position);
-        if (dist < 0.2f)
+        Debug.Log("distance" + dist);
+        if (dist < 1.2f)
         {
             Destroy(gameObject);
         }

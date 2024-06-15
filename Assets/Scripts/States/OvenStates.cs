@@ -40,7 +40,7 @@ public class OvenCookingState : IOvenState
     SpriteRenderer sr;
     OvenController _oc;
     //time of cooking 
-    float timer = 4f;
+    float timer = GameManager.Instance.ovenTimer;
     public void OnEnterState(OvenController oc)
     {
         _oc=oc;
