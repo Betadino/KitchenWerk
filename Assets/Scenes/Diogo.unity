@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &31477244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,7 +414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &342988755
 Transform:
   m_ObjectHideFlags: 0
@@ -437,9 +437,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342988754}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8ce0d1797dde1b41ba2cc248cedb51a, type: 3}
+  m_Script: {fileID: 11500000, guid: b4adf62ecaf576241a39a2630100365b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   availableRecipes:
@@ -449,7 +449,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 37496906f3fd0bb4cb4a25dcf055141f, type: 2}
   customers:
   - {fileID: 1810047708}
-  uiManager: {fileID: 31477244}
+  uiParentTransform: {fileID: 0}
+  orderUIObjects: []
 --- !u!1001 &576252474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1019,6 +1020,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2059570182}
+  - {fileID: 2113484543}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1162,7 +1164,6 @@ MonoBehaviour:
   currentOrder:
     orderName: 
     requiredRecipe: {fileID: 0}
-  uiManager: {fileID: 0}
 --- !u!1001 &2027153894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1473,6 +1474,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059570181}
   m_CullTransparentMesh: 1
+--- !u!1 &2113484542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2113484543}
+  - component: {fileID: 2113484545}
+  - component: {fileID: 2113484544}
+  m_Layer: 5
+  m_Name: OrderMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2113484543
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113484542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1693086417}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2113484544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113484542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4adf62ecaf576241a39a2630100365b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableRecipes:
+  - {fileID: 11400000, guid: 106d87cf90da41e49b1469d5c7af23a9, type: 2}
+  - {fileID: 11400000, guid: b6b29c511822d204c84d87f59886e21b, type: 2}
+  - {fileID: 11400000, guid: e330a0f23a6d94e41a2d466f268bdd0e, type: 2}
+  - {fileID: 11400000, guid: 37496906f3fd0bb4cb4a25dcf055141f, type: 2}
+  customers:
+  - {fileID: 1810047708}
+  uiParentTransform: {fileID: 2113484543}
+  orderUIObjects:
+  - {fileID: 1895742836783212229, guid: 2edaddb22040ad24ca83ec9b6175b616, type: 3}
+  - {fileID: 4844296160887583927, guid: 2ae23778cadd7a54ba58250df81d2cb9, type: 3}
+  - {fileID: 1064356058913364609, guid: 18ac39eafcb686f44b4ab2db09223c42, type: 3}
+  - {fileID: 649919796385990764, guid: 47705bd757b436e47b6c1413d1f0d77c, type: 3}
+--- !u!114 &2113484545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113484542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ff07b709b02df4c97feffbfe9461b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderInterval: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
