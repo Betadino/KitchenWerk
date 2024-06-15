@@ -96,12 +96,7 @@ public class CookingStation : MonoBehaviour
         currentIngredients.Clear();
 
         // Instantiate the resulting food item at the cooking station's position.
-        FoodItem result = Instantiate(recipe.result, transform.position, Quaternion.identity);
+        Instantiate(recipe.result, transform.position, Quaternion.identity);
 
-        // Serve the dish to the current customer.
-        if (currentCustomer != null)
-        {
-            currentCustomer.Serve(result);
-        }
     }
 }

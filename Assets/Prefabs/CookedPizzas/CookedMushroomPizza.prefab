@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5841035706316442479}
   - component: {fileID: -5298830569538279950}
   - component: {fileID: 2781322181879008432}
+  - component: {fileID: -5435082810320755766}
+  - component: {fileID: -4489640170303651155}
   m_Layer: 0
   m_Name: CookedMushroomPizza
   m_TagString: pickable
@@ -153,3 +155,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!114 &-5435082810320755766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072413544590538267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5fddb2dcc400e4468d700598cd6ac7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCustomer: {fileID: -4489640170303651155}
+--- !u!114 &-4489640170303651155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072413544590538267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2648410f8b9ae4c99c7798783f3e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentOrder:
+    orderName: 
+    requiredRecipe: {fileID: 0}
