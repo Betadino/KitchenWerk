@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class RatController : MonoBehaviour
 {
     private GameObject player;
-    public GameObject ratHole;
+    private GameObject ratHole;
+
     public float destroyTimer = 5f;
     private bool targetIsDestroyed = false;
 
@@ -18,10 +18,11 @@ public class RatController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        ratHole = GameObject.FindWithTag("RatHole");
         targets = GameObject.FindGameObjectsWithTag("pickable");
 
         selectedWaypoint = ChooseWaypoint();
-        if (selectedWaypoint == Vector3.zero) // If there isn't any pickable, it's destroyed
+        if (selectedWaypoint == Vector3.zero) // If there isn't any pickable, the rat is destroyed
         {
             Destroy(gameObject);
         }
@@ -30,36 +31,38 @@ public class RatController : MonoBehaviour
     private void Update()
     {
         MoveToTarget(selectedWaypoint);
-
-        // If the player has the broom and is close to the rat
-        if (BroomController.isPickedUp == true && Vector2.Distance(gameObject.transform.position, player.transform.position) <= 0.5f)
-        {
-            // Move the rat towards the hole
-            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, ratHole.transform.position, 2 * Time.deltaTime);
-
-            if (gameObject.transform.position == ratHole.transform.position)
-            {
-                Destroy(gameObject); // The rat is destroyed if it is in the rat hole
-            }
-        }
-        else if (targetIsDestroyed) // If the target is destroyed then the rat will move towards the rat hole
-        {
-            // Move the rat towards the hole
-            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, ratHole.transform.position, 2 * Time.deltaTime);
-            if (gameObject.transform.position == ratHole.transform.position)
-            {
-                Destroy(gameObject); // The rat is destroyed if it is in the rat hole
-            }
-        }
     }
 
     void MoveToTarget(Vector3 waypoint)
     {
         // If the player does not have the broom and is away from the rat
-        if (BroomController.isPickedUp == false || Vector2.Distance(gameObject.transform.position, player.transform.position) > 0.5f)
+        if (BroomController.isPickedUp == false && Vector2.Distance(gameObject.transform.position, player.transform.position) > 0.01f)
         {
             // Move the rat towards the selected target
             gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, waypoint, 2 * Time.deltaTime);
+            Debug.Log("Rat to Target");
+        }
+        // If the player has the broom and is close to the rat
+        else if (BroomController.isPickedUp == true && Vector2.Distance(gameObject.transform.position, player.transform.position) < 0.01f)
+        {
+            // Move the rat towards the hole
+            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, ratHole.transform.position, 2 * Time.deltaTime);
+            Debug.Log("Rat to Hole");
+            if (gameObject.transform.position == ratHole.transform.position)
+            {
+                Destroy(gameObject); // The rat is destroyed if it is in the rat hole
+            }
+        }
+        // If the target is destroyed then the rat will move towards the rat hole
+        else if (targetIsDestroyed)
+        {
+            Debug.Log("Rat destroyed Target");
+            // Move the rat towards the hole
+            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, ratHole.transform.position, 2 * Time.deltaTime);
+            if (gameObject.transform.position == ratHole.transform.position)
+            {
+                Destroy(gameObject); // The rat is destroyed if it is in the rat hole
+            }
         }
     }
 

@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player Speed")]
     public float speed = 1f;
+    public int playerHP = 1;
 
     [Space(20)]
     [Header("Debugs")]
@@ -37,12 +38,14 @@ public class PlayerController : MonoBehaviour
 	{
         GameStateManager.E_GamePaused += HandleGamePaused;
         GameStateManager.E_GameUnpaused += HandleGameUnpaused;
+        UpgradeHandler.E_BoughtHealthIncrease += UpdatePlayerHP;
 	}
 
 	private void OnDisable()
 	{
 		GameStateManager.E_GamePaused -= HandleGamePaused;
 		GameStateManager.E_GameUnpaused -= HandleGameUnpaused;
+		UpgradeHandler.E_BoughtHealthIncrease -= UpdatePlayerHP;
 	}
 
 	public void Start()
@@ -55,6 +58,7 @@ public class PlayerController : MonoBehaviour
     public void Update()
     {
         RotateToMouse(); //aponta o jogador na direcao do rato
+        CheckPlayerHP();
 
         currentMovementState.OnUpdateState(this);
         currentInteractionState.OnUpdateState(this);
@@ -117,5 +121,19 @@ public class PlayerController : MonoBehaviour
         lookDirection = mousePosition - rb.position;
         float lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = lookAngle;
+    }
+
+    private void CheckPlayerHP()
+    {
+        if (playerHP <= 0)
+        {
+            GameManager.Instance.GameOver();
+        }
+    }
+
+    private void UpdatePlayerHP(int healthAmount)
+    {
+        healthAmount = GameManager.Instance.healthIncreaseValue;
+        playerHP += healthAmount;
     }
 }

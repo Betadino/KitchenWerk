@@ -10,6 +10,16 @@ public class OrderIconManager : MonoBehaviour
     private float timeRemaining;
     public Slider slider;
 
+	private void OnEnable()
+	{
+        GameManager.E_orderDelivered += SelfDestruct;
+	}
+
+	private void OnDisable()
+	{
+		GameManager.E_orderDelivered -= SelfDestruct;
+	}
+
 	private void Start()
 	{
         slider.maxValue = orderTime;
@@ -40,5 +50,10 @@ public class OrderIconManager : MonoBehaviour
     private void MoveSlider()
     {
         slider.value = timeRemaining;
+    }
+
+    private void SelfDestruct()
+    {
+        Destroy(gameObject);
     }
 }

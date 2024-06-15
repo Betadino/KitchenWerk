@@ -12,6 +12,7 @@ TagManager:
   - crate
   - oven
   - test
+  - RatHole
   layers:
   - Default
   - TransparentFX

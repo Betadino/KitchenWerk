@@ -4,7 +4,8 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     #region EVENTS
-    public static event Action E_oven, E_orderDelivered;
+    public static event Action E_oven, E_orderDelivered; //eventos mid (tiago)
+	public static event Action E_RemoveHP, E_GameOver; //eventos fixes (tomas)
     #endregion
 
     #region SCORE VARS
@@ -24,6 +25,14 @@ public class GameManager : Singleton<GameManager>
 	public int moneyMultLevel = 0;
 	public int moneyMultMaxLevel = 3;
 	public float moneyMultValue = 1f;
+	#endregion
+
+	[Space(10)]
+	#region MONEY VARS
+	[Header("HEALTH")]
+	public int healthIncreaseLevel = 0;
+	public int healthIncreaseMaxLevel = 2;
+	public int healthIncreaseValue = 1;
 	#endregion
 
 	[Space(10)]
@@ -49,6 +58,7 @@ public class GameManager : Singleton<GameManager>
 		UpgradeHandler.E_BoughtSprint += SpendMoney;
 		UpgradeHandler.E_BoughMoneyMult += LevelUpMoney;
 		UpgradeHandler.E_BoughtScoreMult += LevelUpScore;
+		UpgradeHandler.E_BoughtHealthIncrease += LevelUpHealth;
 	}
 
 	private void OnDisable()
@@ -57,6 +67,7 @@ public class GameManager : Singleton<GameManager>
 		UpgradeHandler.E_BoughtSprint -= SpendMoney;
 		UpgradeHandler.E_BoughMoneyMult -= LevelUpMoney;
 		UpgradeHandler.E_BoughtScoreMult -= LevelUpScore;
+		UpgradeHandler.E_BoughtHealthIncrease -= LevelUpHealth;
 	}
 
 	private void Update()
@@ -114,6 +125,11 @@ public class GameManager : Singleton<GameManager>
 		playerScore += Mathf.RoundToInt(defaultScoreValue * scoreMultValue);
 	}
 
+	public void RemoveHP()
+	{
+		E_RemoveHP?.Invoke();
+	}
+
 	public void GainMoney()
 	{
 		money += Mathf.RoundToInt(defaultMoneyGain * moneyMultValue);
@@ -145,6 +161,20 @@ public class GameManager : Singleton<GameManager>
 		{
 			scoreMultLevel += 1;
 		}
+	}
+
+	public void LevelUpHealth(int amount)
+	{
+		money -= amount;
+		if (healthIncreaseLevel < healthIncreaseMaxLevel)
+		{
+			healthIncreaseLevel += 1;
+		}
+	}
+
+	public void GameOver()
+	{
+		E_GameOver?.Invoke();
 	}
 	#endregion
 }

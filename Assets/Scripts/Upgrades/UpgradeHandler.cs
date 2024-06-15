@@ -14,18 +14,22 @@ public class UpgradeHandler : MonoBehaviour
     public GameObject moneyMultLevelText;
     public GameObject scoreMultCostText;
     public GameObject scoreMultLevelText;
+    public GameObject healthIncreaseCostText;
+    public GameObject healthIncreaseLevelText;
 
     //_______________Events______________________________
     public static event Action<int> E_BoughtDash;
     public static event Action<int> E_BoughtSprint;
     public static event Action<int> E_BoughMoneyMult;
     public static event Action<int> E_BoughtScoreMult;
+    public static event Action<int> E_BoughtHealthIncrease;
 
     //____________Upgrade Costs___________________________
     private int dashCost = 1000;
     private int sprintCost = 1000;
     private int moneyMultCost = 1000;
     private int scoreMultCost = 1000;
+    private int healthIncreaseCost = 1000;
 
     void Start()
     {
@@ -36,15 +40,19 @@ public class UpgradeHandler : MonoBehaviour
         moneyMultLevelText.GetComponent<TextMeshProUGUI>().text = "(" + GameManager.Instance.moneyMultLevel.ToString() + "/" + GameManager.Instance.moneyMultMaxLevel.ToString() + ")";
 		scoreMultCostText.GetComponent<TextMeshProUGUI>().text = scoreMultCost.ToString();
 		scoreMultLevelText.GetComponent<TextMeshProUGUI>().text = "(" + GameManager.Instance.scoreMultLevel.ToString() + "/" + GameManager.Instance.scoreMultMaxLevel.ToString() + ")";
+		healthIncreaseCostText.GetComponent<TextMeshProUGUI>().text = healthIncreaseCost.ToString();
+		healthIncreaseLevelText.GetComponent<TextMeshProUGUI>().text = "(" + GameManager.Instance.healthIncreaseLevel.ToString() + "/" + GameManager.Instance.healthIncreaseMaxLevel.ToString() + ")";
+
 	}
 
-    void Update()
+	void Update()
     {
         moneyText.GetComponent<TextMeshProUGUI>().text = GameManager.Instance.money.ToString();
 		moneyMultLevelText.GetComponent<TextMeshProUGUI>().text = "(" + GameManager.Instance.moneyMultLevel.ToString() + "/" + GameManager.Instance.moneyMultMaxLevel.ToString() + ")";
 		scoreMultLevelText.GetComponent<TextMeshProUGUI>().text = "(" + GameManager.Instance.scoreMultLevel.ToString() + "/" + GameManager.Instance.scoreMultMaxLevel.ToString() + ")";
+		healthIncreaseLevelText.GetComponent<TextMeshProUGUI>().text = "(" + GameManager.Instance.healthIncreaseLevel.ToString() + "/" + GameManager.Instance.healthIncreaseMaxLevel.ToString() + ")";
 
-        if (GameManager.Instance.hasDash)
+		if (GameManager.Instance.hasDash)
         {
             dashCostText.GetComponent<TextMeshProUGUI>().text = "BOUGHT!";
         }
@@ -97,6 +105,24 @@ public class UpgradeHandler : MonoBehaviour
 				break;
 		}
 		#endregion
+
+		#region HEALTH
+		switch (GameManager.Instance.healthIncreaseLevel)
+		{
+			case 0:
+				healthIncreaseCost = 1000;
+				healthIncreaseCostText.GetComponent<TextMeshProUGUI>().text = healthIncreaseCost.ToString();
+				break;
+			case 1:
+				healthIncreaseCost = 1500;
+				healthIncreaseCostText.GetComponent<TextMeshProUGUI>().text = healthIncreaseCost.ToString();
+				break;
+			case 2:
+				healthIncreaseCost = 0000;
+				healthIncreaseCostText.GetComponent<TextMeshProUGUI>().text = "MAX!";
+				break;
+		}
+		#endregion
 	}
 
 	public void BuyDash()
@@ -132,4 +158,12 @@ public class UpgradeHandler : MonoBehaviour
             E_BoughtScoreMult?.Invoke(scoreMultCost);
         }
     }
+
+	public void BuyHealthIncrease()
+	{
+		if (GameManager.Instance.money >= healthIncreaseCost && GameManager.Instance.healthIncreaseLevel < GameManager.Instance.healthIncreaseMaxLevel)
+		{
+			E_BoughtHealthIncrease?.Invoke(healthIncreaseCost);
+		}
+	}
 }
