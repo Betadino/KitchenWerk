@@ -7,13 +7,8 @@ using UnityEngine;
 public class BumController : MonoBehaviour
 {
     public static bool bumIsDestroyed = false;
-    public float timer = 20f;
+    public float timer = 15f;
     public GameObject trashPrefab;
-
-    private void Start()
-    {
-
-    }
 
     private void Update()
     {
@@ -26,7 +21,7 @@ public class BumController : MonoBehaviour
                                                                    Camera.main.nearClipPlane /* Nearest point of the camera view */)),
                         Quaternion.identity);
 
-            timer = 20f;
+            timer = 15f;
         }
     }
 

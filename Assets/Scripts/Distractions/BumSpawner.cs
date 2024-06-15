@@ -7,7 +7,7 @@ public class BumSpawner : MonoBehaviour
 {
     public GameObject bum;
 
-    public float spawnInterval = 20f; // Interval between spawns in seconds
+    public float spawnInterval = 30f; // Interval between spawns in seconds
 
     void Start()
     {
