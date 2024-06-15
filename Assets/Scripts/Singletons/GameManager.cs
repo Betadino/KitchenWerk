@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     #region EVENTS
-    public static event Action E_oven;
+    public static event Action E_oven, E_orderDelivered;
     #endregion
 
     #region SCORE VARS
@@ -36,6 +36,11 @@ public class GameManager : Singleton<GameManager>
     public static void SetOvenDoor()
     {
         E_oven?.Invoke();
+    }
+
+	  public static void OrderDelivered()
+    {
+        E_orderDelivered?.Invoke();
     }
 
     private void OnEnable()

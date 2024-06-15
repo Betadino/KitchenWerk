@@ -11,6 +11,8 @@ public class CookingStation : MonoBehaviour
     // The list of recipes available in the game.
     public List<Recipe> recipeList;
 
+    bool match;
+
     // When a food item enters the cooking station's trigger collider,
     // it gets added to the current ingredients list.
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,6 +31,23 @@ public class CookingStation : MonoBehaviour
             }
         }
     }
+
+     private void OnTriggerExit2D(Collider2D collision)
+    {
+          if(!collision.CompareTag("Player") && !collision.CompareTag("Rat") &&  !match)
+        {
+            // Check if the collided object has the FoodItem component.
+            FoodItem foodItem = collision.gameObject.GetComponent<FoodItem>();
+            if (foodItem != null && !foodItem.name.StartsWith("Raw") && !foodItem.name.StartsWith("Cooked"));
+            {
+                // Add the food item to the current ingredients list.
+                currentIngredients.Remove(foodItem);
+
+            }
+        }
+    }
+
+    
     
 
     // This method checks if the current ingredients match any recipe.
@@ -41,7 +60,7 @@ public class CookingStation : MonoBehaviour
             // Check if the number of ingredients matches.
             if (recipe.ingredients.Count == currentIngredients.Count)
             {
-                bool match = true;
+                match = true;
 
                 // Check if all ingredients in the recipe are present in the current ingredients.
                 foreach (FoodItem ingredient in recipe.ingredients)
