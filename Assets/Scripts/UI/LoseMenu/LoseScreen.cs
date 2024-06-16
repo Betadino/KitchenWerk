@@ -12,6 +12,7 @@ public class LoseScreen : MonoBehaviour
 
     public void Retry()
     {
+        GameManager.Instance.ResetAll();
         SceneManager.LoadScene("Nando");
     }
 }

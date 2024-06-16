@@ -89,6 +89,37 @@ public class GameManager : Singleton<GameManager>
 		UpgradeHandler.E_BoughtHealthIncrease -= LevelUpHealth;
 	}
 
+	public void ResetAll()
+	{
+		playerScore = 0;
+		defaultScoreValue = 100;
+		scoreMultLevel = 0;
+		scoreMultMaxLevel = 3;
+		scoreMultValue = 1f;
+
+		money = 0;
+		defaultMoneyGain = 100;
+		moneyMultLevel = 0;
+		moneyMultMaxLevel = 3;
+		moneyMultValue = 1f;
+
+		playerHealth = 1;
+		healthIncreaseLevel = 0;
+		healthIncreaseMaxLevel = 2;
+		healthIncreaseValue = 1;
+
+		hasDash = false;
+		hasSprint = false;
+		isDead = false;
+		canLoadLoseScene = true;
+
+		ovenTimer = 4f;
+		pizzaTimerToFailure = 45f;
+
+		currentOrder = null;
+		ordersCompleted = 0;
+}
+
 	private void Update()
 	{
 		#region GAME OVER CHECKER
