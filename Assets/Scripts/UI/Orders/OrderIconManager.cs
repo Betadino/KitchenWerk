@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class OrderIconManager : MonoBehaviour
 {
-    public float orderTime;
+    public float orderTime = GameManager.Instance.pizzaTimerToFailure;
     private float timeRemaining;
     public Slider slider;
 

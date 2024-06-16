@@ -42,6 +42,13 @@ public class GameManager : Singleton<GameManager>
 	public bool hasSprint = false;
     #endregion
 
+	[Space(10)]
+	#region TIMERS
+	[Header("TIMERS")]
+	public float ovenTimer = 4f;
+	public float pizzaTimerToFailure = 45f;
+    #endregion
+
     public static void SetOvenDoor()
     {
         E_oven?.Invoke();

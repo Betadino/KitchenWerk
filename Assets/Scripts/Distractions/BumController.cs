@@ -7,13 +7,8 @@ using UnityEngine;
 public class BumController : MonoBehaviour
 {
     public static bool bumIsDestroyed = false;
-    public float timer = 20f;
+    public float timer = 15f;
     public GameObject trashPrefab;
-
-    private void Start()
-    {
-
-    }
 
     private void Update()
     {
@@ -21,12 +16,12 @@ public class BumController : MonoBehaviour
         if (timer < 0) // If the player doesn't deal with the bum in time, the bum will throw trash
         {
             Instantiate(trashPrefab,
-                        Camera.main.ScreenToWorldPoint(new Vector3(UnityEngine.Random.Range(0, Screen.width), /* Random Width */
-                                                                   UnityEngine.Random.Range(0, Screen.height), /* Random Height */
+                        Camera.main.ScreenToWorldPoint(new Vector3(UnityEngine.Random.Range(410, Screen.width - 410), /* Random Width */
+                                                                   UnityEngine.Random.Range(120, Screen.height - 120), /* Random Height */
                                                                    Camera.main.nearClipPlane /* Nearest point of the camera view */)),
                         Quaternion.identity);
 
-            timer = 20f;
+            timer = 15f;
         }
     }
 

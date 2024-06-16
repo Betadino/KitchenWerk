@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5276880335671384643}
   - component: {fileID: -7716360614164345396}
   - component: {fileID: -475837813524832132}
+  - component: {fileID: 758922184199748786}
+  - component: {fileID: -7293822027518185449}
   m_Layer: 0
   m_Name: CookedPepperoniPizza
   m_TagString: pickable
@@ -153,3 +155,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!114 &758922184199748786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5582226701599264650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5fddb2dcc400e4468d700598cd6ac7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCustomer: {fileID: -7293822027518185449}
+--- !u!114 &-7293822027518185449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5582226701599264650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2648410f8b9ae4c99c7798783f3e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentOrder:
+    orderName: 
+    requiredRecipe: {fileID: 0}

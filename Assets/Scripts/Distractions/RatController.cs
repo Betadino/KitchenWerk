@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -35,13 +36,24 @@ public class RatController : MonoBehaviour
 
     void MoveToTarget(Vector3 waypoint)
     {
-        // If the player does not have the broom and is away from the rat
-        if (BroomController.isPickedUp == false && Vector2.Distance(gameObject.transform.position, player.transform.position) > 0.01f)
+        // If the player does not have the broom, is away from the rat and the target has not been destroyed
+        if (BroomController.isPickedUp == false && Vector2.Distance(gameObject.transform.position, player.transform.position) < 0.1f && !targetIsDestroyed)
         {
             // Move the rat towards the selected target
             gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, waypoint, 2 * Time.deltaTime);
-            Debug.Log("Rat to Target");
         }
+        else
+        {
+            // Move the rat towards the hole
+            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, ratHole.transform.position, 2 * Time.deltaTime);
+
+            if (gameObject.transform.position == ratHole.transform.position)
+            {
+                Destroy(gameObject); // The rat is destroyed if it is in the rat hole
+            }
+        }
+
+        /*
         // If the player has the broom and is close to the rat
         else if (BroomController.isPickedUp == true && Vector2.Distance(gameObject.transform.position, player.transform.position) < 0.01f)
         {
@@ -64,6 +76,7 @@ public class RatController : MonoBehaviour
                 Destroy(gameObject); // The rat is destroyed if it is in the rat hole
             }
         }
+        */
     }
 
     Vector3 ChooseWaypoint()
@@ -75,21 +88,25 @@ public class RatController : MonoBehaviour
         else
         {
             // Select a random target from the targets list
-            int randomIndex = Random.Range(0, targets.Length);
+            int randomIndex = UnityEngine.Random.Range(0, targets.Length);
             GameObject randomTarget = targets[randomIndex];
 
             return randomTarget.transform.position;
         }
     }
-
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
-        // If the rat is in the target and n seconds have passed, then it will destroy the target
-        destroyTimer -= Time.deltaTime;
-        if (destroyTimer < 0)
+        if (collision.gameObject.tag == "pickable")
         {
-            Destroy(collision.gameObject);
-            targetIsDestroyed = true;
+            // If the rat is in the target and n seconds have passed, then it will destroy the target
+            destroyTimer -= Time.deltaTime;
+            if (destroyTimer < 0f)
+            {
+                Destroy(collision.gameObject);
+                targetIsDestroyed = true;
+                destroyTimer = 0f;
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8779819718951013689
+--- !u!1 &5758976039224999841
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4983892896461055262}
-  - component: {fileID: 4916753290430119658}
-  - component: {fileID: 6605993843737601432}
-  - component: {fileID: -3133667406797064519}
-  - component: {fileID: -6496188212763256454}
-  - component: {fileID: -6961967925411604764}
-  - component: {fileID: 3550126186956905196}
-  m_Layer: 0
-  m_Name: CookedMargheritaPizza
-  m_TagString: pickable
+  - component: {fileID: 3077453946661117584}
+  - component: {fileID: 2870609616625375120}
+  - component: {fileID: 8390015918055759884}
+  - component: {fileID: 7314383972552085521}
+  - component: {fileID: 8692127935463527839}
+  m_Layer: 6
+  m_Name: Customer
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4983892896461055262
+--- !u!4 &3077453946661117584
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8779819718951013689}
+  m_GameObject: {fileID: 5758976039224999841}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.981, y: 0.772, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4916753290430119658
+--- !u!212 &2870609616625375120
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8779819718951013689}
+  m_GameObject: {fileID: 5758976039224999841}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,8 +75,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: a65bafa0dce41504e83c012ef990dc1b, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 76e0a5468a1fb3b45b6c74e26b678b90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -89,44 +87,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6605993843737601432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8779819718951013689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2d075c7e481d6b4c8f5e8ded043c139, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: CookedMargheritaPizza
-  itemSprite: {fileID: 645133415820580440, guid: 661732c3e095a2f41bf3cba225449936, type: 3}
---- !u!114 &-3133667406797064519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8779819718951013689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b88e79aa5039af943acfb57455898e40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  circleCollider: {fileID: -6496188212763256454}
-  playerGrabArea: {fileID: 0}
-  player: {fileID: 0}
-  spriteRenderer: {fileID: 4916753290430119658}
-  inRange: 0
---- !u!58 &-6496188212763256454
+--- !u!58 &8390015918055759884
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8779819718951013689}
+  m_GameObject: {fileID: 5758976039224999841}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -152,34 +119,48 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.004119873}
   serializedVersion: 2
-  m_Radius: 0.4
---- !u!114 &-6961967925411604764
+  m_Radius: 0.46404523
+--- !u!114 &7314383972552085521
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8779819718951013689}
+  m_GameObject: {fileID: 5758976039224999841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5fddb2dcc400e4468d700598cd6ac7e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b295e78a35e8b14894dcfc4a67d7a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCustomer: {fileID: 3550126186956905196}
---- !u!114 &3550126186956905196
-MonoBehaviour:
+  orderPoint: {fileID: 0}
+  leavePoint: {fileID: 0}
+  rb: {fileID: 8692127935463527839}
+--- !u!50 &8692127935463527839
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8779819718951013689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca2648410f8b9ae4c99c7798783f3e8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentOrder:
-    orderName: 
-    requiredRecipe: {fileID: 0}
+  m_GameObject: {fileID: 5758976039224999841}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

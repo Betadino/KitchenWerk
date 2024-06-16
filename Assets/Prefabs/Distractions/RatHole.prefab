@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rat: {fileID: 2226658525220909662, guid: 427f0c30c690fca4d87322ed1383d8fe, type: 3}
-  spawnInterval: 40
+  spawnInterval: 30

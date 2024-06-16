@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class SpawnCustomer : MonoBehaviour
 {
-
+    public Transform  orderPoint, leavePoint;
     public GameObject customer;
 
-
+    
     void Start()
     {
         GameManager.E_orderDelivered += DeployCustomer;
+        var cb = customer.GetComponent<CustomerBehaviour>();
+        cb.orderPoint = orderPoint;
+        cb.leavePoint = leavePoint;
+        DeployCustomer();
     }
 
     void OnDestroy() {
@@ -20,7 +24,7 @@ public class SpawnCustomer : MonoBehaviour
     
     void DeployCustomer()
     {
-        Instantiate(customer, gameObject.transform.position, Quaternion.identity);
+     Instantiate(customer, gameObject.transform.position, Quaternion.identity);
     }
 
     
