@@ -126,12 +126,6 @@ public class GameManager : Singleton<GameManager>
 	}
 
 	#region ADD STUFF
-
-	public void AddScore()
-	{
-		playerScore += Mathf.RoundToInt(defaultScoreValue * scoreMultValue);
-	}
-
 	public void RemoveHP()
 	{
 		E_RemoveHP?.Invoke();
