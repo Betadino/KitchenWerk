@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a02e4db8851beb48b04d50af0081371, type: 3}
-  m_Name: MushroomPizza
+  m_Name: CookedMushroomPizza
   m_EditorClassIdentifier: 
   recipeName: MushroomPizza
   ingredients:
@@ -18,4 +18,4 @@ MonoBehaviour:
   - {fileID: 19820255878771476, guid: 73afe50d06d0db24c9365ff28a36e10d, type: 3}
   - {fileID: 7086428728893699233, guid: 5825743371933ca49b90a812f62aae81, type: 3}
   - {fileID: 2816496902271799946, guid: 048ba0a9c354ed84ca3bf205ae9d4213, type: 3}
-  result: {fileID: 6783175233695292594, guid: 6b19413989765c14f92f6eba5d1bf7f2, type: 3}
+  result: {fileID: 5841035706316442479, guid: 85b42c85ab51a19488fb69b06563974d, type: 3}

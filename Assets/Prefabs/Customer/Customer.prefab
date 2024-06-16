@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8390015918055759884}
   - component: {fileID: 7314383972552085521}
   - component: {fileID: 8692127935463527839}
+  - component: {fileID: 8488607322881299836}
   m_Layer: 6
   m_Name: Customer
   m_TagString: Customer
@@ -164,3 +165,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8488607322881299836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758976039224999841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2648410f8b9ae4c99c7798783f3e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentOrder:
+    orderName: 
+    requiredRecipe: {fileID: 0}

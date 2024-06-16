@@ -13,7 +13,7 @@ public class OrderGenerator : MonoBehaviour
 		E_GenerateOrder?.Invoke();
 	}
 
-	private void Start()
+	/*private void Start()
 	{
 		StartCoroutine(CallGenerateOrderEvent());
 	}
@@ -26,5 +26,5 @@ public class OrderGenerator : MonoBehaviour
 
 			E_GenerateOrder?.Invoke();
 		}
-	}
+	}*/
 }

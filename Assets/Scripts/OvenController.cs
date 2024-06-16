@@ -53,13 +53,13 @@ public class OvenController : MonoBehaviour
             isCooked = false;
             currentPizza = other.gameObject;
             isPizzaInside=true;
-            Debug.Log(isPizzaInside);
+            //Debug.Log(isPizzaInside);
         }
     }
 
      void OnTriggerExit2D(Collider2D other) 
      {
             isPizzaInside=false;  
-            Debug.Log(isPizzaInside);
+            //Debug.Log(isPizzaInside);
      }
 }

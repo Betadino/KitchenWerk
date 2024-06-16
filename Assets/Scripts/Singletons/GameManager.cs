@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -21,15 +22,16 @@ public class GameManager : Singleton<GameManager>
 	#region MONEY VARS
 	[Header("MONEY")]
 	public int money = 0;
-	public int defaultMoneyGain = 50;
+	public int defaultMoneyGain = 100;
 	public int moneyMultLevel = 0;
 	public int moneyMultMaxLevel = 3;
 	public float moneyMultValue = 1f;
 	#endregion
 
 	[Space(10)]
-	#region MONEY VARS
+	#region HEALTH VARS
 	[Header("HEALTH")]
+	public int playerHealth = 1;
 	public int healthIncreaseLevel = 0;
 	public int healthIncreaseMaxLevel = 2;
 	public int healthIncreaseValue = 1;
@@ -40,6 +42,8 @@ public class GameManager : Singleton<GameManager>
 	[Header("BOOLS")]
 	public bool hasDash = false;
 	public bool hasSprint = false;
+	private bool isDead = false;
+	private bool canLoadLoseScene = true;
     #endregion
 
 	[Space(10)]
@@ -47,14 +51,21 @@ public class GameManager : Singleton<GameManager>
 	[Header("TIMERS")]
 	public float ovenTimer = 4f;
 	public float pizzaTimerToFailure = 45f;
-    #endregion
+	#endregion
 
-    public static void SetOvenDoor()
+	[Space(10)]
+	#region ORDERS
+	[Header("ORDERS")]
+	public Order currentOrder = null;
+	public int ordersCompleted = 0;
+	#endregion
+
+	public static void SetOvenDoor()
     {
         E_oven?.Invoke();
     }
 
-	  public static void OrderDelivered()
+	public static void OrderDelivered()
     {
         E_orderDelivered?.Invoke();
     }
@@ -66,6 +77,7 @@ public class GameManager : Singleton<GameManager>
 		UpgradeHandler.E_BoughMoneyMult += LevelUpMoney;
 		UpgradeHandler.E_BoughtScoreMult += LevelUpScore;
 		UpgradeHandler.E_BoughtHealthIncrease += LevelUpHealth;
+
 	}
 
 	private void OnDisable()
@@ -79,6 +91,27 @@ public class GameManager : Singleton<GameManager>
 
 	private void Update()
 	{
+		#region GAME OVER CHECKER
+		if (playerHealth == 0)
+		{
+			isDead = true;
+		}
+
+		if (isDead && canLoadLoseScene)
+		{
+			GameOver();
+			canLoadLoseScene = false;
+		}
+		#endregion
+
+		#region TIMER REDUCER
+		if (ordersCompleted > 9)
+		{
+			pizzaTimerToFailure -= 2;
+			ordersCompleted = 0;
+		}
+		#endregion
+
 		#region SCORE MULT LEVEL
 		//Score Mult Value per Level
 		switch (scoreMultLevel)
@@ -128,7 +161,7 @@ public class GameManager : Singleton<GameManager>
 	#region ADD STUFF
 	public void RemoveHP()
 	{
-		E_RemoveHP?.Invoke();
+		playerHealth -= 1;
 	}
 
 	public void GainMoney()
@@ -138,7 +171,8 @@ public class GameManager : Singleton<GameManager>
 
 	public void GainScore()
 	{
-		playerScore += Mathf.RoundToInt(defaultScoreValue * scoreMultLevel);
+		Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAA");
+		playerScore += Mathf.RoundToInt(defaultScoreValue * scoreMultValue);
 	}
 
 	public void SpendMoney(int amount)
@@ -170,12 +204,13 @@ public class GameManager : Singleton<GameManager>
 		if (healthIncreaseLevel < healthIncreaseMaxLevel)
 		{
 			healthIncreaseLevel += 1;
+			playerHealth += 1;
 		}
 	}
 
 	public void GameOver()
 	{
-		E_GameOver?.Invoke();
+		SceneManager.LoadScene("LoseScene");
 	}
 	#endregion
 }

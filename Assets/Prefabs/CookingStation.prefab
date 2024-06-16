@@ -94,10 +94,10 @@ MonoBehaviour:
   currentCustomer: {fileID: 0}
   currentIngredients: []
   recipeList:
-  - {fileID: 11400000, guid: 37496906f3fd0bb4cb4a25dcf055141f, type: 2}
-  - {fileID: 11400000, guid: e330a0f23a6d94e41a2d466f268bdd0e, type: 2}
-  - {fileID: 11400000, guid: b6b29c511822d204c84d87f59886e21b, type: 2}
-  - {fileID: 11400000, guid: 106d87cf90da41e49b1469d5c7af23a9, type: 2}
+  - {fileID: 11400000, guid: 09e7ebc3617e0434fa49df88a2442337, type: 2}
+  - {fileID: 11400000, guid: a5576c32e4362da459c3c24120c5380e, type: 2}
+  - {fileID: 11400000, guid: 9149ec6253d2fb54d9553a1f8b2901ba, type: 2}
+  - {fileID: 11400000, guid: b033b13d9e0a3d442a56ce5c48dbba5b, type: 2}
 --- !u!212 &8651752837043042919
 SpriteRenderer:
   m_ObjectHideFlags: 0

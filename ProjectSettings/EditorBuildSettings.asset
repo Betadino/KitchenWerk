@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nando.unity
     guid: 8ab57b56d313eda4ea9670741f9e3265
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: f2e2e4e3194240e4580d7d712298ef2a
   m_configObjects: {}

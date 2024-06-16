@@ -104,7 +104,7 @@ public class PlayerRunningState : IPlayerMovementStates
     public float verticalValue;
     public Vector2 movement;
     public float speed = 2f;
-    public float runningModifier = 2f;
+    public float runningModifier = 4f;
 
     public void OnEnterState (PlayerController player)
     {

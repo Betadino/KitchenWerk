@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player Speed")]
     public float speed = 1f;
-    public int playerHP = 1;
+    public int playerHP = 0;
 
     [Space(20)]
     [Header("Debugs")]
@@ -38,14 +38,14 @@ public class PlayerController : MonoBehaviour
 	{
         GameStateManager.E_GamePaused += HandleGamePaused;
         GameStateManager.E_GameUnpaused += HandleGameUnpaused;
-        UpgradeHandler.E_BoughtHealthIncrease += UpdatePlayerHP;
+        //UpgradeHandler.E_BoughtHealthIncrease += UpdatePlayerHP;
 	}
 
 	private void OnDisable()
 	{
 		GameStateManager.E_GamePaused -= HandleGamePaused;
 		GameStateManager.E_GameUnpaused -= HandleGameUnpaused;
-		UpgradeHandler.E_BoughtHealthIncrease -= UpdatePlayerHP;
+		//UpgradeHandler.E_BoughtHealthIncrease -= UpdatePlayerHP;
 	}
 
 	public void Start()
@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
         SwitchMovementState(playerIdleState);
         SwitchInteractionState(playerHandsFreeState);
         camera = Camera.main;
+        playerHP = GameManager.Instance.playerHealth;
     }
 
     public void Update()
@@ -131,9 +132,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void UpdatePlayerHP(int healthAmount)
+    /*private void UpdatePlayerHP(int healthAmount)
     {
         healthAmount = GameManager.Instance.healthIncreaseValue;
         playerHP += healthAmount;
-    }
+    }*/
 }

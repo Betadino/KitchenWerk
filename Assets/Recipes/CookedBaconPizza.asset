@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a02e4db8851beb48b04d50af0081371, type: 3}
+  m_Name: CookedBaconPizza
+  m_EditorClassIdentifier: 
+  recipeName: BaconPizza
+  ingredients:
+  - {fileID: 3395860796373171732, guid: 4ae79ca256e5fe349a28af7337b46b31, type: 3}
+  - {fileID: 19820255878771476, guid: 73afe50d06d0db24c9365ff28a36e10d, type: 3}
+  - {fileID: 2816496902271799946, guid: 048ba0a9c354ed84ca3bf205ae9d4213, type: 3}
+  - {fileID: 19820255878771476, guid: 095388b4c31ae6d45828308a3dea38b6, type: 3}
+  result: {fileID: 4216346472949545941, guid: caf636417125da4458c6b07eecbcc95d, type: 3}

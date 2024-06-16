@@ -25,8 +25,8 @@ public class UpgradeHandler : MonoBehaviour
     public static event Action<int> E_BoughtHealthIncrease;
 
     //____________Upgrade Costs___________________________
-    private int dashCost = 1000;
-    private int sprintCost = 1000;
+    private int dashCost = 800;
+    private int sprintCost = 800;
     private int moneyMultCost = 1000;
     private int scoreMultCost = 1000;
     private int healthIncreaseCost = 1000;

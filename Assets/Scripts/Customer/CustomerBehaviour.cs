@@ -9,6 +9,7 @@ public class CustomerBehaviour : MonoBehaviour
     public Transform  orderPoint, leavePoint;
 
     bool orderFullfilled = false;
+    bool waitingForOrder = false;
     public Rigidbody2D rb;
     void MoveToTarget(Transform waypoint)
     {
@@ -22,7 +23,6 @@ public class CustomerBehaviour : MonoBehaviour
     void CheckDistanceToDestroy()
     {
         float dist = Vector3.Distance(gameObject.transform.position, leavePoint.position);
-        Debug.Log("distance" + dist);
         if (dist < 1.2f)
         {
             Destroy(gameObject);
@@ -34,9 +34,10 @@ public class CustomerBehaviour : MonoBehaviour
     void CheckDistanceDeployOrder()
     {
         float dist = Vector3.Distance(gameObject.transform.position, orderPoint.position);
-        if (dist < 0.2f)
+		if (dist < 2f && !waitingForOrder)
         {
             OrderGenerator.GenerateOrder();
+            waitingForOrder = true;
         }
     }
 

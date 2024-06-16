@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
 public class SpawnCustomer : MonoBehaviour
 {
     public Transform  orderPoint, leavePoint;
     public GameObject customer;
+    public static event Action<GameObject> E_ReceiveCustomer;
 
     
     void Start()
@@ -24,8 +26,7 @@ public class SpawnCustomer : MonoBehaviour
     
     void DeployCustomer()
     {
-     Instantiate(customer, gameObject.transform.position, Quaternion.identity);
+        Instantiate(customer, gameObject.transform.position, Quaternion.identity);
+        E_ReceiveCustomer?.Invoke(customer);
     }
-
-    
 }
