@@ -16,8 +16,8 @@ public class BumController : MonoBehaviour
         if (timer < 0) // If the player doesn't deal with the bum in time, the bum will throw trash
         {
             Instantiate(trashPrefab,
-                        Camera.main.ScreenToWorldPoint(new Vector3(UnityEngine.Random.Range(410, Screen.width - 410), /* Random Width */
-                                                                   UnityEngine.Random.Range(120, Screen.height - 120), /* Random Height */
+                        Camera.main.ScreenToWorldPoint(new Vector3(UnityEngine.Random.Range(430, Screen.width - 430), /* Random Width */
+                                                                   UnityEngine.Random.Range(130, Screen.height - 130), /* Random Height */
                                                                    Camera.main.nearClipPlane /* Nearest point of the camera view */)),
                         Quaternion.identity);
 

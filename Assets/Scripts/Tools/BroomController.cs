@@ -7,14 +7,12 @@ public class BroomController : MonoBehaviour
 {
     private GameObject player;
     private GameObject broom;
-    private GameObject trash;
     public static bool isPickedUp = false;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         broom = GameObject.FindWithTag("HoldBroom"); // Empty object inside player for the broom position
-        trash = GameObject.FindWithTag("Trash");
     }
 
     void Update()
@@ -47,7 +45,7 @@ public class BroomController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == trash) // Clean the trash
+        if (collision.gameObject.tag == "Trash") // Clean the trash
         {
             Destroy(collision.gameObject);
         }
