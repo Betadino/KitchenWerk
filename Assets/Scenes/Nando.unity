@@ -1073,6 +1073,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BumSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 8213179090432459470, guid: a567cc826a38142438377f058e641c24, type: 3}
+      propertyPath: spawnInterval
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
