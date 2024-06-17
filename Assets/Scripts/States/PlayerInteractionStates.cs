@@ -16,6 +16,7 @@ public class PlayerHandsFreeState : IPlayerInteractionStates
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.LogWarning("dddd");
             CheckObject();
             if (selectedObject != null)
             {
@@ -49,7 +50,7 @@ public class PlayerHandsFreeState : IPlayerInteractionStates
             if (objectHit.GetComponent<ObjectController>().inRange == true)
             {
                 var prefab = objectHit.GetComponent<IngPrefab>().Prefab;
-				selectedObject = GameObject.Instantiate(prefab, _player.gameObject.transform.position , Quaternion.identity);
+                GameObject.Instantiate(prefab, _player.gameObject.transform.position , Quaternion.identity);
 
 			}
         }
