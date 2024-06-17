@@ -7,6 +7,7 @@ public class LoseScreen : MonoBehaviour
 {
     public void BackToMenu()
     {
+        GameManager.Instance.ResetAll();
         SceneManager.LoadScene("MainMenu");
     }
 

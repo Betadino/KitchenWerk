@@ -50,7 +50,7 @@ public class GameManager : Singleton<GameManager>
 	#region TIMERS
 	[Header("TIMERS")]
 	public float ovenTimer = 4f;
-	public float pizzaTimerToFailure = 45f;
+	public float pizzaTimerToFailure = 65f;
 	#endregion
 
 	[Space(10)]

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class OrderIconManager : MonoBehaviour
 {
-    public float orderTime = GameManager.Instance.pizzaTimerToFailure;
+    private float orderTime;
     private float timeRemaining;
     public Slider slider;
 
@@ -22,6 +22,7 @@ public class OrderIconManager : MonoBehaviour
 
 	private void Start()
 	{
+        orderTime = GameManager.Instance.pizzaTimerToFailure;
         slider.maxValue = orderTime;
         timeRemaining = orderTime;
 	}
@@ -42,6 +43,7 @@ public class OrderIconManager : MonoBehaviour
     {
 		if (timeRemaining <= 0)
 		{
+            GameManager.Instance.RemoveHP();
 			GameManager.OrderDelivered();
 			Destroy(gameObject);
 		}

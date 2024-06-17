@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5973348621695844132}
   - component: {fileID: 4278242445674037289}
   - component: {fileID: 7153613099833899067}
+  - component: {fileID: 3823546534193104950}
   m_Layer: 0
   m_Name: Trash
   m_TagString: Trash
@@ -119,4 +120,16 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.01706846, y: -0.01704}
   serializedVersion: 2
-  m_Radius: 0.4557345
+  m_Radius: 1.48
+--- !u!114 &3823546534193104950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5338263846545104602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2421db2e379b2ea4fb8bdc60a57a3e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
