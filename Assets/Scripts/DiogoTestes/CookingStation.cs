@@ -17,7 +17,7 @@ public class CookingStation : MonoBehaviour
     // it gets added to the current ingredients list.
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!collision.CompareTag("Player") && !collision.CompareTag("Rat"))
+        if (!collision.CompareTag("Player") && !collision.CompareTag("Rat"))
         {
             // Check if the collided object has the FoodItem component.
             FoodItem foodItem = collision.gameObject.GetComponent<FoodItem>();
@@ -32,31 +32,28 @@ public class CookingStation : MonoBehaviour
         }
     }
 
-     private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-          if(!collision.CompareTag("Player") && !collision.CompareTag("Rat") &&  !match)
+        if (!collision.CompareTag("Player") && !collision.CompareTag("Rat") && !match)
         {
             // Check if the collided object has the FoodItem component.
             FoodItem foodItem = collision.gameObject.GetComponent<FoodItem>();
-            if (foodItem != null && !foodItem.name.StartsWith("Raw") && !foodItem.name.StartsWith("Cooked"));
+            if (foodItem != null && !foodItem.name.StartsWith("Raw") && !foodItem.name.StartsWith("Cooked"))
             {
                 // Add the food item to the current ingredients list.
                 currentIngredients.Remove(foodItem);
-
             }
         }
     }
 
-    
-    
 
-    // This method checks if the current ingredients match any recipe.
+
+    // Checks if the current ingredients match any recipe.
     void CheckRecipe()
     {
         // Iterate through all available recipes.
         foreach (Recipe recipe in recipeList)
         {
-
             // Check if the number of ingredients matches.
             if (recipe.ingredients.Count == currentIngredients.Count)
             {
@@ -82,7 +79,7 @@ public class CookingStation : MonoBehaviour
         }
     }
 
-    // This method handles the creation of the final food item
+    // Handles the creation of the final food item
     // by destroying the ingredients and instantiating the result.
     void Cook(Recipe recipe)
     {
@@ -97,6 +94,5 @@ public class CookingStation : MonoBehaviour
 
         // Instantiate the resulting food item at the cooking station's position.
         Instantiate(recipe.result, transform.position, Quaternion.identity);
-
     }
 }

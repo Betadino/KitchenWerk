@@ -14,14 +14,14 @@ public class Customer : MonoBehaviour
             GameManager.Instance.GainMoney();
             GameManager.Instance.GainScore();
             GameManager.Instance.ordersCompleted += 1;
-            // Handle customer satisfaction (e.g., increase score, remove customer, etc.)
+            // Handle customer satisfaction
         }
         else
         {
             //GameManager.Instance.RemoveHP();
             Debug.Log("Customer is not satisfied. Expected: " + GameManager.Instance.currentOrder.requiredRecipe.result.itemName + ", but got: " + servedItem.itemName);
             GameManager.Instance.RemoveHP();
-            // Handle customer dissatisfaction (e.g., reduce score, etc.)
+            // Handle customer dissatisfaction
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Recipe", menuName = "Recipe")]
 public class Recipe : ScriptableObject
 {
-    // The name of the recipe (e.g., "Pizza", "Salad").
+    // The name of the recipe (e.g., "PepperoniPizza", "MushroomPizza").
     public string recipeName;
 
     // The list of ingredients required for this recipe.
